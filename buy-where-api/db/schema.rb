@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_171224) do
-
-  create_table "items", force: :cascade do |t|
-    t.string "name"
-    t.integer "quantity"
-    t.float "price"
-    t.integer "stores_id"
-    t.index ["stores_id"], name: "index_items_on_stores_id"
-  end
+ActiveRecord::Schema.define(version: 2019_12_09_203943) do
 
   create_table "stores", force: :cascade do |t|
     t.string "name"
