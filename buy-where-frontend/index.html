@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Shopping Store Lists</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Shopping Lists</h1>
+        <form id="new-store-form">
+            <label>Where are you shopping?</label>
+            <input type="text" id="store-name" placeholder="Store name" />
+            <input type="submit" id="store-btn" value="Submit" />
+        </form>
+        <form id="new-lists-form">
+            <label>What do you need?</label>
+            <input type="text" id="item-name" placeholder="Item name" />
+            <input type="submit" id="item-btn" value="Submit" />
+        </form>
+    </div>
+
+    <div class="container">
+        <h1> All stores </h1>
+        <div id="stores-wrapper">
+
+        </div>
+    </div>
+
+    <script src="scripts/index.js"></script>
+    <script src="scripts/app.js"></script>
+
+</html>
