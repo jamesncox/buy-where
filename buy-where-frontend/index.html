@@ -3,19 +3,35 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Shopping Store Lists</title>
+    <title>Buy Where</title>
 
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Shopping Lists</h1>
-        <form id="new-store-form">
-            <label>Where are you shopping?</label>
-            <input type="text" id="store-name" placeholder="Store name" />
-            <input type="submit" id="store-btn" value="Submit" />
-        </form>
+        <h1>Buy / Where</h1>
+        <div id="new-store-container">
+            <form id="new-store-form">
+                <label>Where are you shopping?</label>
+                <input type="text" id="store-name" placeholder="Store name" />
+                <input type="submit" id="store-btn" value="Submit" />
+            </form>
+
+            <div id="store-content">
+                <h2> Stores </h2>
+                <ul id="stores-container">
+                    list of stores here
+
+                </ul>
+                <div id="store-show">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="new-item-container">
         <form id="new-item-form">
             <label>What did you buy?</label>
             <input type="text" id="item-name" placeholder="Item name" />
@@ -31,12 +47,16 @@
             <input type="text" id="item-name" placeholder="Item quantity" />
             <input type="submit" id="item-btn" value="Submit" />
         </form>
-    </div>
 
-    <div class="container">
-        <h1> All stores </h1>
-        <div id="stores-wrapper">
+        <div id="item-content">
+            <h2> Items </h2>
+            <ul id="items-container">
+                list of items
 
+            </ul>
+            <div id="item-show">
+
+            </div>
         </div>
     </div>
 
