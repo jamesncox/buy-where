@@ -1,12 +1,14 @@
 class Api::V1::ItemsController < ApplicationController
     def index
         @item = Item.all 
-        render json: ItemSerializer.new(@items), include: [:store]
+        # render json: ItemSerializer.new(@items), include: [:store]
+        render json: @items, include: :store 
     end
 
     def show
         @item = Item.find_by(id: params[:id])
-        render json: ItemSerializer.new(@item), include: [:store]
+        # render json: ItemSerializer.new(@item), include: [:store]
+        render json: @item, include: :store
     end
 
     def create
@@ -22,7 +24,8 @@ class Api::V1::ItemsController < ApplicationController
     def update
         @item = Item.find(params[:id])
         @item.update(item_params)
-        render json: ItemSerializer.new(@item), include: [:store]
+        # render json: ItemSerializer.new(@item), include: [:store]
+        render json: @item, include: :store
     end
     
     def destroy
