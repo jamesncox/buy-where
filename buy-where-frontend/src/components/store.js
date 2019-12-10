@@ -1,10 +1,10 @@
 class Store {
-    constructor(noteJSON) {
-        this.id = noteJSON.id
-        this.body = noteJSON.body
+    constructor(storeJSON) {
+        this.id = storeJSON.id
+        this.name = storeJSON.name
     }
 
     renderLi() {
-        return `<li data-id=${this.id}>${this.body}</li>`
+        return `<li data-id=${this.id}>${this.name}</li>`
     }
 }

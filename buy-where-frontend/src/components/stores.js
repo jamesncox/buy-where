@@ -1,6 +1,7 @@
 class Stores {
     constructor() {
         this.stores = []
+        this.lists = []
         this.adapter = new StoresAdapter()
         this.storeBindingsAndEventListeners()
         this.itemBindingsAndEventListeners()
@@ -9,12 +10,12 @@ class Stores {
 
     storeBindingsAndEventListeners() {
         this.storesContainer = document.getElementById('stores-container')
-        this.body = document.querySelector('body')
+        this.name = document.querySelector('name')
         this.newStoreName = document.getElementById('store-name')
         this.storeForm = document.getElementById('new-store-form')
         this.storeForm.addEventListener('submit', this.createStore.bind(this))
         this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
-        this.body.addEventListener('blur', this.updatStore.bind(this), true)
+        this.name.addEventListener('blur', this.updatStore.bind(this), true)
     }
 
     itemBindingsAndEventListeners() {
