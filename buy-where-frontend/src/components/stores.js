@@ -60,7 +60,7 @@ class Stores {
             .then(stores => {
                 stores.forEach(store => this.stores.push(new Store(store)))
                 // stores.forEach(store => this.stores.push(store))
-                console.log(this.stores)
+                // console.log(this.stores)
             })
             .then(() => {
                 this.render()
@@ -68,8 +68,7 @@ class Stores {
     }
 
     render() {
-        // this.storesContainer.innerHTML = this.stores.data.included.map(store => store.renderLi()).join(''))
         const storesContainer = document.getElementById('stores-container')
-        storesContainer.innerHTML = 'my notes here'
+        storesContainer.innerHTML = this.stores.map(store => store.renderLi()).join('')
     }
 }
