@@ -58,7 +58,9 @@ class Stores {
         this.adapter
             .getStores()
             .then(stores => {
-                stores.forEach(store => this.stores.push(store))
+                stores.forEach(store => this.stores.push(new Store(store)))
+                // stores.forEach(store => this.stores.push(store))
+                console.log(this.stores)
             })
             .then(() => {
                 this.render()
