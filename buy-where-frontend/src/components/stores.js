@@ -58,8 +58,7 @@ class Stores {
         this.adapter
             .getStores()
             .then(stores => {
-                console.log(stores)
-                stores.forEach(store => this.store.push(new Store(store)))
+                stores.forEach(store => this.stores.push(store))
             })
             .then(() => {
                 this.render()
@@ -67,7 +66,8 @@ class Stores {
     }
 
     render() {
-        this.storesContainer.innerHTML = this.stores.data.included.map(store => store.renderLi()).join('')
-        console.log('my stores are', this.stores)
+        // this.storesContainer.innerHTML = this.stores.data.included.map(store => store.renderLi()).join(''))
+        const storesContainer = document.getElementById('stores-container')
+        storesContainer.innerHTML = 'my notes here'
     }
 }
