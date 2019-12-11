@@ -8,4 +8,8 @@ class Store {
     renderLi() {
         return `<li data-id=${this.id}>${this.name}</li>`
     }
+
+    formHTML() {
+        // this will render a hidden field form that allows someone to create item name, price, quantity
+    }
 }

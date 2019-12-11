@@ -2,18 +2,18 @@ class Stores {
     constructor() {
         this.stores = []
         this.adapter = new StoresAdapter()
-        // this.storeBindingsAndEventListeners()
+        this.storeBindingsAndEventListeners()
         this.fetchAndLoadStores()
     }
 
     storeBindingsAndEventListeners() {
         this.storesContainer = document.getElementById('stores-container')
-        //     this.name = document.querySelector('name')
-        //     this.newStoreName = document.getElementById('store-name')
+        // this.name = document.querySelector('name')
+        // this.newStoreName = document.getElementById('store-name')
         // this.storeForm = document.getElementById('new-store-form')
         // this.storeForm.addEventListener('submit', this.createStore.bind(this))
-        //     this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
-        //     this.name.addEventListener('blur', this.updatStore.bind(this), true)
+        // this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
+        // this.name.addEventListener('blur', this.updatStore.bind(this), true)
     }
 
     // createStore(e) {
@@ -52,8 +52,8 @@ class Stores {
         this.adapter
             .getStores()
             .then(stores => {
-                stores.forEach(store => this.stores.push(new Store(store)))
-                console.log(this.stores)
+                stores.forEach(store => this.stores.push(store))
+                console.log(stores)
             })
             .then(() => {
                 this.renderStore()
