@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Item.destroy_all
+Store.destroy_all
 
 Store.create!([{ name: 'Kroger' }, { name: 'Target' }, { name: 'Lucky' }])
 
