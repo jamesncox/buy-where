@@ -1,10 +1,10 @@
-class Stores {
+class Items {
     constructor() {
-        this.stores = []
-        this.adapter = new StoresAdapter()
+        this.items = []
+        this.adapter = new ItemsAdapter()
         // this.storeBindingsAndEventListeners()
         // this.itemBindingsAndEventListeners()
-        this.fetchAndLoadStores()
+        this.fetchAndLoadItems()
     }
 
     // storeBindingsAndEventListeners() {
@@ -53,20 +53,19 @@ class Stores {
     //     this.adapter.updateStore(newValue, id)
     // }
 
-    fetchAndLoadStores() {
+    fetchAndLoadItems() {
         this.adapter
             .getStores()
             .then(stores => {
-                stores.forEach(store => this.stores.push(new Store(store)))
-                // stores.forEach(store => this.stores.push(store))
+                stores.forEach(store => this.items.push(new Item(item)))
             })
             .then(() => {
-                this.renderStore()
+                this.renderItem()
             })
     }
 
-    renderStore() {
-        const storesContainer = document.getElementById('stores-container')
-        storesContainer.innerHTML = this.stores.map(store => store.renderLi()).join('')
+    renderItem() {
+        const itemsContainer = document.getElementById('items-container')
+        itemsContainer.innerHTML = this.items.map(item => item.renderLi()).join('')
     }
 }
