@@ -7,6 +7,6 @@ class Item {
     }
 
     renderLi() {
-        return `<li data-id=${this.id}>${this.name}</li>`
+        return `<li data-id=${this.items.id}>${this.items.name}, ${this.items.price}, ${this.items.quantity}</li>`
     }
 }
