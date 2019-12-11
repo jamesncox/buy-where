@@ -52,8 +52,8 @@ class Stores {
         this.adapter
             .getStores()
             .then(stores => {
-                stores.forEach(store => this.stores.push(store))
-                console.log(stores)
+                stores.forEach(store => this.stores.push(new Store(store)))
+                console.log(this.stores)
             })
             .then(() => {
                 this.renderStore()
@@ -65,5 +65,7 @@ class Stores {
         // and not use this.storesContainer defined in storeBindingsAndEventListeners()?
         const storesContainer = document.getElementById('stores-container')
         storesContainer.innerHTML = this.stores.map(store => store.renderLi()).join('')
+        // create a <p></p> or <span></span> to be able to reference an individual store that I can
+        // grab the element and place an eventListener on, to render a formHTML() which has the items form.
     }
 }
