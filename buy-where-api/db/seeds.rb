@@ -16,5 +16,10 @@ item3 = Item.create(name: 'Bomber Jacket', price: 150.69, quantity: 1, store_id:
 item4 = Item.create(name: 'Skinny Jeans', price: 85.99, quantity: 1, store_id: 3)
 item5 = Item.create(name: 'Top Gun T-shirt', price: 35.99, quantity: 1, store_id: 3)
 
-stores[1].items << item1 
-stores[0].items << item2
+stores[0].items << item1 
+stores[1].items << item2
+stores[2].items << item3 
+stores[2].items << item4
+stores[2].items << item5
+
+
