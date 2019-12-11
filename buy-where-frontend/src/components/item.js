@@ -4,6 +4,7 @@ class Item {
         this.items.name = itemJSON.items.name
         this.items.price = itemJSON.items.price
         this.items.quantity = itemJSON.items.quantity
+        debugger
     }
 
     renderLi() {

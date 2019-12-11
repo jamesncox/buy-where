@@ -2,20 +2,19 @@ class Stores {
     constructor() {
         this.stores = []
         this.adapter = new StoresAdapter()
-        // this.storeBindingsAndEventListeners()
-        // this.itemBindingsAndEventListeners()
+        this.storeBindingsAndEventListeners()
         this.fetchAndLoadStores()
     }
 
-    // storeBindingsAndEventListeners() {
-    //     this.storesContainer = document.getElementById('stores-container')
-    //     this.name = document.querySelector('name')
-    //     this.newStoreName = document.getElementById('store-name')
-    //     this.storeForm = document.getElementById('new-store-form')
-    //     this.storeForm.addEventListener('submit', this.createStore.bind(this))
-    //     this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
-    //     this.name.addEventListener('blur', this.updatStore.bind(this), true)
-    // }
+    storeBindingsAndEventListeners() {
+        this.storesContainer = document.getElementById('stores-container')
+        //     this.name = document.querySelector('name')
+        //     this.newStoreName = document.getElementById('store-name')
+        //     this.storeForm = document.getElementById('new-store-form')
+        //     this.storeForm.addEventListener('submit', this.createStore.bind(this))
+        //     this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
+        //     this.name.addEventListener('blur', this.updatStore.bind(this), true)
+    }
 
     // itemBindingsAndEventListeners() {
 
@@ -66,6 +65,8 @@ class Stores {
     }
 
     renderStore() {
+        // why do i need to have the const storesContainer defined here?
+        // and not use this.storesContainer defined in storeBindingsAndEventListeners()?
         const storesContainer = document.getElementById('stores-container')
         storesContainer.innerHTML = this.stores.map(store => store.renderLi()).join('')
     }
