@@ -10,26 +10,22 @@ class Stores {
         this.storesContainer = document.getElementById('stores-container')
         //     this.name = document.querySelector('name')
         //     this.newStoreName = document.getElementById('store-name')
-        //     this.storeForm = document.getElementById('new-store-form')
-        //     this.storeForm.addEventListener('submit', this.createStore.bind(this))
+        this.storeForm = document.getElementById('new-store-form')
+        this.storeForm.addEventListener('submit', this.createStore.bind(this))
         //     this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
         //     this.name.addEventListener('blur', this.updatStore.bind(this), true)
     }
 
-    // itemBindingsAndEventListeners() {
+    createStore(e) {
+        e.preventDefault()
+        const value = this.newStoreName.value
 
-    // }
-
-    // createStore(e) {
-    //     e.preventDefault()
-    //     const value = this.newStoreName.value
-
-    //     this.adapter.createStore(value).then(store => {
-    //         this.stores.push(new Store(store))
-    //         this.newStoreName.value = ''
-    //         this.render()
-    //     })
-    // }
+        this.adapter.createStore(value).then(store => {
+            this.stores.push(new Store(store))
+            this.newStoreName.value = ''
+            this.render()
+        })
+    }
 
     // handleNoteClick(e) {
     //     this.toggleStore(e)
