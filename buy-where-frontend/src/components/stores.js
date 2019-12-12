@@ -9,7 +9,7 @@ class Stores {
     storeBindingsAndEventListeners() {
         this.storesContainer = document.getElementById('stores-container')
         this.name = document.querySelector('name')
-        this.newStoreName = document.getElementById('store-name')
+        this.newStoreName = document.getElementById('new-store-name')
         this.storeForm = document.getElementById('new-store-form')
         this.storeForm.addEventListener('submit', this.createStore.bind(this))
         // this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
@@ -17,12 +17,12 @@ class Stores {
     }
 
     createStore(e) {
-        console.log('creating store')
         e.preventDefault()
         const value = this.newStoreName.value
 
         this.adapter.createStore(value).then(store => {
             this.stores.push(new Store(store))
+            console.log(value)
             this.newStoreName.value = ''
             this.renderStore()
         })
