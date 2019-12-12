@@ -10,8 +10,8 @@ class Stores {
         this.storesContainer = document.getElementById('stores-container')
         // this.name = document.querySelector('name')
         // this.newStoreName = document.getElementById('store-name')
-        // this.storeForm = document.getElementById('new-store-form')
-        // this.storeForm.addEventListener('submit', this.createStore.bind(this))
+        this.storeForm = document.getElementById('new-store-form')
+        this.storeForm.addEventListener('submit', this.createStore.bind(this))
         // this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
         // this.name.addEventListener('blur', this.updatStore.bind(this), true)
     }
