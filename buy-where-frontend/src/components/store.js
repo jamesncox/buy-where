@@ -2,9 +2,7 @@ class Store {
     constructor(storeJSON) {
         this.id = storeJSON.id
         this.name = storeJSON.name
-        // console.log(this.items)
         this.items = storeJSON.items.map(io => new Item(io))
-        //line 5 isn't working. :(
     }
 
     renderStoreLi(items = '') {

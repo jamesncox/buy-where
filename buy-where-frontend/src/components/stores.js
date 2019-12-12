@@ -8,46 +8,45 @@ class Stores {
 
     storeBindingsAndEventListeners() {
         this.storesContainer = document.getElementById('stores-container')
-        // this.name = document.querySelector('name')
-        // this.newStoreName = document.getElementById('store-name')
+        this.name = document.querySelector('name')
+        this.newStoreName = document.getElementById('store-name')
         this.storeForm = document.getElementById('new-store-form')
         this.storeForm.addEventListener('submit', this.createStore.bind(this))
         // this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
-        // this.name.addEventListener('blur', this.updatStore.bind(this), true)
+        // this.name.addEventListener('blur', this.updateStore.bind(this), true)
     }
 
     createStore(e) {
         console.log('creating store')
-        //     e.preventDefault()
-        //     const value = this.newStoreName.value
+        e.preventDefault()
+        const value = this.newStoreName.value
 
-        //     this.adapter.createStore(value).then(store => {
-        //         this.stores.push(new Store(store))
-        //         this.newStoreName.value = ''
-        //         this.render()
-        //     })
+        this.adapter.createStore(value).then(store => {
+            this.stores.push(new Store(store))
+            this.newStoreName.value = ''
+            this.renderStore()
+        })
     }
 
-    // handleNoteClick(e) {
-    //     this.toggleStore(e)
-    // }
+    handleStoreClick(e) {
+        this.toggleStore(e)
+    }
 
-    // toggleStore(e) {
-    //     const li = e.target
-    //     li.contentEditable = true
-    //     li.focus()
-    //     li.classList.add('editable')
-    // }
+    toggleStore(e) {
+        const li = e.target
+        li.contentEditable = true
+        li.focus()
+        li.classList.add('editable')
+    }
 
-    // updateStore(e) {
-    //     const li = e.target
-    //     li.contentEditable = false
-    //     li.classList.remove('editable')
-    //     const newValue = li.innerHTML
-    //     const id = li.dataset.id
-    //     //console.log(id)
-    //     this.adapter.updateStore(newValue, id)
-    // }
+    updateStore(e) {
+        const li = e.target
+        li.contentEditable = false
+        li.classList.remove('editable')
+        const newValue = li.innerHTML
+        const id = li.dataset.id
+        this.adapter.updateStore(newValue, id)
+    }
 
     fetchAndLoadStores() {
         this.adapter
