@@ -64,8 +64,26 @@ class Stores {
         // why do i need to have the const storesContainer defined here?
         // and not use this.storesContainer defined in storeBindingsAndEventListeners()?
         const storesContainer = document.getElementById('stores-container')
-        storesContainer.innerHTML = this.stores.map(store => store.renderLi()).join('')
+        // storesContainer.innerHTML = this.stores.map(store => store.renderStoreLi()).join('')
+
+        this.stores.map(store => {
+            let storeLi = document.createElement('li')
+            storeLi.innerHTML = `<li data-id=${store.id}>${store.name}</li>`
+            let ul = document.createElement('ul')
+            for (let i of store.items) {
+                // let li = Item.renderItemLi()
+                // how to call a function from another class?
+                let li = document.createElement('li')
+                li.setAttribute('data-id', i['id'])
+                li.innerHTML = `${i['name']}, ${i['price']}, ${i['quantity']}`
+                ul.appendChild(li)
+            }
+            storeLi.appendChild(ul)
+            storesContainer.appendChild(storeLi)
+        })
+
         // create a <p></p> or <span></span> to be able to reference an individual store that I can
         // grab the element and place an eventListener on, to render a formHTML() which has the items form.
     }
+
 }

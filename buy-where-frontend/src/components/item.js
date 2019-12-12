@@ -1,12 +1,16 @@
 class Item {
     constructor(itemJSON) {
-        this.items.id = itemJSON.items.id
-        this.items.name = itemJSON.items.name
-        this.items.price = itemJSON.items.price
-        this.items.quantity = itemJSON.items.quantity
+        // console.log(itemJSON)
+        this.id = itemJSON.id
+        this.name = itemJSON.name
+        this.price = itemJSON.price
+        this.quantity = itemJSON.quantity
     }
 
-    // renderLi() {
-    //     return `<li data-id=${this.items.id}>${this.items.name}, ${this.items.price}, ${this.items.quantity}</li>`
-    // }
+    renderItemLi() {
+        let li = document.createElement('li')
+        li.setAttribute('data-id', i['id'])
+        li.innerHTML = `${i['name']}, ${i['price']}, ${i['quantity']}`
+        return li
+    }
 }

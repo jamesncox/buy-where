@@ -53,17 +53,6 @@ class Items {
     //     this.adapter.updateStore(newValue, id)
     // }
 
-    fetchAndLoadItems() {
-        this.adapter
-            .getStores()
-            .then(stores => {
-                stores.forEach(store => this.items.push(new Item(item)))
-            })
-            .then(() => {
-                this.renderItem()
-            })
-    }
-
     renderItem() {
         const itemsContainer = document.getElementById('items-container')
         itemsContainer.innerHTML = this.items.map(item => item.renderLi()).join('')
