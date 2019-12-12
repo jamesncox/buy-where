@@ -24,7 +24,7 @@ body {
     padding-left: 20px;
   }
   
-  .delete-note-link {
+  .delete-store-link {
     color: red;
   }
   
@@ -33,7 +33,7 @@ body {
     padding: 20px;
   }
   
-  #notes-content {
+  #stores-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 10px;

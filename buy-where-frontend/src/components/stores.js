@@ -16,16 +16,17 @@ class Stores {
         // this.name.addEventListener('blur', this.updatStore.bind(this), true)
     }
 
-    // createStore(e) {
-    //     e.preventDefault()
-    //     const value = this.newStoreName.value
+    createStore(e) {
+        console.log('creating store')
+        //     e.preventDefault()
+        //     const value = this.newStoreName.value
 
-    //     this.adapter.createStore(value).then(store => {
-    //         this.stores.push(new Store(store))
-    //         this.newStoreName.value = ''
-    //         this.render()
-    //     })
-    // }
+        //     this.adapter.createStore(value).then(store => {
+        //         this.stores.push(new Store(store))
+        //         this.newStoreName.value = ''
+        //         this.render()
+        //     })
+    }
 
     // handleNoteClick(e) {
     //     this.toggleStore(e)
