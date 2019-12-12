@@ -53,7 +53,6 @@ class Stores {
             .getStores()
             .then(stores => {
                 stores.forEach(store => this.stores.push(new Store(store)))
-                console.log(this.stores)
             })
             .then(() => {
                 this.renderStore()
@@ -71,7 +70,7 @@ class Stores {
             storeLi.innerHTML = `<li data-id=${store.id}>${store.name}</li>`
             let ul = document.createElement('ul')
             for (let i of store.items) {
-                // let li = Item.renderItemLi()
+                // let li = renderItemLi()
                 // how to call a function from another class?
                 let li = document.createElement('li')
                 li.setAttribute('data-id', i['id'])
