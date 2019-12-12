@@ -26,6 +26,7 @@ class Stores {
             this.newStoreName.value = ''
             this.renderStore()
         })
+        console.log(this.stores)
     }
 
     handleStoreClick(e) {
@@ -68,6 +69,7 @@ class Stores {
         this.stores.map(store => {
             let storeLi = document.createElement('li')
             storeLi.innerHTML = `<li data-id=${store.id}>${store.name}</li>`
+            // console.log(storeLi.innerHTML)
             let ul = document.createElement('ul')
             for (let i of store.items) {
                 // let li = renderItemLi()
