@@ -9,7 +9,7 @@ class StoresAdapter {
 
     createStore(value) {
         const store = {
-            body: value,
+            name: value,
         }
 
         return fetch(this.baseUrl, {
