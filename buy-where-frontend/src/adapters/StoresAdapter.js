@@ -23,7 +23,7 @@ class StoresAdapter {
 
     updateStore(value, id) {
         const store = {
-            body: value,
+            name: value,
         }
 
         return fetch(`${this.baseUrl}/${id}`, {
