@@ -12,7 +12,7 @@ class Stores {
         this.newStoreName = document.getElementById('new-store-name')
         this.storeForm = document.getElementById('new-store-form')
         this.storeForm.addEventListener('submit', this.createStore.bind(this))
-        // this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
+        this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
         // this.name.addEventListener('blur', this.updateStore.bind(this), true)
     }
 
@@ -22,11 +22,9 @@ class Stores {
 
         this.adapter.createStore(value).then(store => {
             this.stores.push(new Store(store))
-            console.log(value)
             this.newStoreName.value = ''
             this.renderStore()
         })
-        console.log(this.stores)
     }
 
     handleStoreClick(e) {
@@ -34,6 +32,7 @@ class Stores {
     }
 
     toggleStore(e) {
+        e.preventDefault()
         const li = e.target
         li.contentEditable = true
         li.focus()
@@ -69,7 +68,6 @@ class Stores {
         this.stores.map(store => {
             let storeLi = document.createElement('li')
             storeLi.innerHTML = `<li data-id=${store.id}>${store.name}</li>`
-            // console.log(storeLi.innerHTML)
             let ul = document.createElement('ul')
             for (let i of store.items) {
                 // let li = renderItemLi()
