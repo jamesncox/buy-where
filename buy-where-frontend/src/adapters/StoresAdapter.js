@@ -30,6 +30,7 @@ class StoresAdapter {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
+                'accepts': 'application/json',
             },
             body: JSON.stringify({ store }),
         }).then(res => res.json())
