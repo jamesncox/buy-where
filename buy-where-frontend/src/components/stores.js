@@ -75,7 +75,7 @@ class Stores {
             let storeUl = document.createElement('ul')
             let storeLi = document.createElement('li')
             storeLi.innerHTML = `<li data-id=${store.id}>${store.name}</li>`
-            storeUl.appendChild(storeLi)
+            storeUl.appendChild(storeLi).classList.add('highlight')
             let ul = document.createElement('ul')
             for (let i of store.items) {
                 // let li = renderItemLi()
@@ -83,11 +83,12 @@ class Stores {
                 let li = document.createElement('li')
                 li.setAttribute('data-id', i['id'])
                 li.innerHTML = `${i['name']}, ${i['price']}, ${i['quantity']}`
-                ul.appendChild(li)
+                ul.appendChild(li).classList.add
             }
             storeUl.appendChild(ul)
             // storesContainer.container += " cardClass"
-            storesContainer.appendChild(storeUl).classList.add('card').classList.add('column')
+            storesContainer.appendChild(storeUl).classList.add('card')
+
 
             // storeUl.appendChild(newItemForm).style.display = "block"
         })
