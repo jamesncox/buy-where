@@ -28,7 +28,7 @@ class Api::V1::StoresController < ApplicationController
     end 
 
     def update 
-        @store = Store.find_by(id: params[id])
+        @store = Store.find_by(id: params[:id])
         @store.update(store_params)
 
         render json: @store, include: :items, status: 200
