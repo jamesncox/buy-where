@@ -3,12 +3,13 @@
 }
 
 body {
-  background: #fafafa;
+  background: #052952;
   font-family: GTWalsheim,Helvetica,sans-serif;
   line-height: 1.8;
 }
 h1 {
   text-align: center;
+  color: rgb(4, 59, 122)
 }
 
 h2 {
@@ -23,10 +24,11 @@ h2 {
 
 /* Remove extra left and right margins, due to padding in columns */
 .row { 
-  display: flex;}
+  display: float
+}
 
 /* Clear floats after the columns */
-.row-after {
+.row::after {
   content: "";
   display: table;
   clear: both;
