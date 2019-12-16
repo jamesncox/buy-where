@@ -7,6 +7,9 @@ body {
   font-family: GTWalsheim,Helvetica,sans-serif;
   line-height: 1.8;
 }
+h1 {
+  text-align: center;
+}
 
 h2 {
   margin-top: 0;
@@ -19,7 +22,8 @@ h2 {
 }
 
 /* Remove extra left and right margins, due to padding in columns */
-.row {margin: 0 0px;}
+.row { 
+  display: flex;}
 
 /* Clear floats after the columns */
 .row-after {
@@ -31,7 +35,7 @@ h2 {
 .card {
   padding: 40px;
   background: rgb(252, 252, 252);
-  max-width: 360px;
+  max-width: 1500px;
   border-radius: 20px;
   margin: 60px auto;
   box-shadow:
@@ -40,7 +44,7 @@ h2 {
 }
 
 .highlight {
-  font-weight: bold;
+  font-weight: 900;
   text-transform: uppercase;
   color: rgb(4, 59, 122);
 }
@@ -58,7 +62,7 @@ h2 {
   }
   
   input {
-    font-size: 1.5em;
+    font-size: 1em;
   }
   
   .container {
@@ -97,3 +101,9 @@ h2 {
   #new-quantity-form {
     display: none;
   }
+
+  #new-store-form {
+    text-align: center
+  }
+
+  
