@@ -8,13 +8,31 @@ h2 {
   margin-top: 0;
 }
 
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .card {
   padding: 40px;
   background: #fff;
   max-width: 360px;
   border-radius: 20px;
   margin: 60px auto;
-  display: none;
+  box-shadow:
+        0  5px 10px rgba(154,160,185,0.05),
+        0 15px 40px rgba(166,173,201,0.2);
 }
 
 .highlight {

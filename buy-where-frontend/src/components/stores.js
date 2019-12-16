@@ -9,8 +9,6 @@ class Stores {
     storeBindingsAndEventListeners() {
         this.storesContainer = document.getElementById('stores-container')
         // this.cardClass = document.getElementsByClassName('card shadow2')
-        // this.storeLi = document.querySelector('li')
-        // this.storeId = storeLi.dataset.id
         this.body = document.querySelector('body')
         this.newStoreName = document.getElementById('new-store-name')
         this.storeForm = document.getElementById('new-store-form')
@@ -89,7 +87,8 @@ class Stores {
             }
             storeUl.appendChild(ul)
             // storesContainer.container += " cardClass"
-            storesContainer.appendChild(storeUl)
+            storesContainer.appendChild(storeUl).classList.add('card').classList.add('column')
+
             // storeUl.appendChild(newItemForm).style.display = "block"
         })
 
