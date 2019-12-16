@@ -8,12 +8,15 @@ class Stores {
 
     storeBindingsAndEventListeners() {
         this.storesContainer = document.getElementById('stores-container')
-        this.name = document.querySelector('name')
+        // this.cardClass = document.getElementsByClassName('card shadow2')
+        // this.storeLi = document.querySelector('li')
+        // this.storeId = storeLi.dataset.id
         this.newStoreName = document.getElementById('new-store-name')
         this.storeForm = document.getElementById('new-store-form')
         this.storeForm.addEventListener('submit', this.createStore.bind(this))
         this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
-        // this.name.addEventListener('blur', this.updateStore.bind(this), true)
+        // this.storeId.addEventListener('blur', this.updateStore.bind(this), true)
+        console.log(this.name)
     }
 
     createStore(e) {
@@ -63,11 +66,15 @@ class Stores {
         // why do i need to have the const storesContainer defined here?
         // and not use this.storesContainer defined in storeBindingsAndEventListeners()?
         const storesContainer = document.getElementById('stores-container')
+        // const cardClass = document.getElementsByClassName('card shadow2')
+        // storesContainer.container += " cardClass"
         // storesContainer.innerHTML = this.stores.map(store => store.renderStoreLi()).join('')
 
         this.stores.map(store => {
+            let storeUl = document.createElement('ul')
             let storeLi = document.createElement('li')
             storeLi.innerHTML = `<li data-id=${store.id}>${store.name}</li>`
+            storeUl.appendChild(storeLi)
             let ul = document.createElement('ul')
             for (let i of store.items) {
                 // let li = renderItemLi()
@@ -77,8 +84,9 @@ class Stores {
                 li.innerHTML = `${i['name']}, ${i['price']}, ${i['quantity']}`
                 ul.appendChild(li)
             }
-            storeLi.appendChild(ul)
-            storesContainer.appendChild(storeLi)
+            storeUl.appendChild(ul)
+            // storesContainer.container += " cardClass"
+            storesContainer.appendChild(storeUl)
         })
 
         // create a <p></p> or <span></span> to be able to reference an individual store that I can

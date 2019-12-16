@@ -61,3 +61,15 @@ h2 {
     grid-template-columns: 2fr 1fr;
     grid-gap: 10px;
   }
+
+  #new-item-form {
+    display: none;
+  }
+
+  #new-price-form {
+    display: none;
+  }
+
+  #new-quantity-form {
+    display: none;
+  }
