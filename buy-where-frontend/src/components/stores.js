@@ -67,17 +67,20 @@ class Stores {
         const newPriceForm = document.getElementById('new-price-form')
         const newQuantityForm = document.getElementById('new-quantity-form')
 
+        const itemTable = document.getElementById('item-table')
+
         // storesContainer.innerHTML = this.stores.map(store => store.renderStoreLi()).join('')
 
         this.stores.map(store => {
             let storeUl = document.createElement('ul')
             let storeLi = document.createElement('li')
+
+            let itemTable = document.getElementById('item-table')
+
             storeLi.innerHTML = `<li data-id=${store.id}>${store.name}</li>`
             storeUl.appendChild(storeLi).classList.add('highlight')
             let ul = document.createElement('ul')
             for (let i of store.items) {
-                // let li = renderItemLi()
-                // how to call a function from another class?
                 let li = document.createElement('li')
                 li.setAttribute('data-id', i['id'])
                 li.innerHTML = `${i['name']}, ${i['price']}, ${i['quantity']}`
@@ -86,11 +89,44 @@ class Stores {
             storeUl.appendChild(ul)
             storesContainer.appendChild(storeUl).classList.add('card')
         })
-        // create a <p></p> or <span></span> to be able to reference an individual store that I can
-        // grab the element and place an eventListener on, to render a formHTML() which has the items form.
     }
 
     renderItemForm() {
 
     }
 }
+
+// this.stores.map(store => {
+//     let storeUl = document.createElement('ul')
+//     let storeLi = document.createElement('li')
+
+//     storeLi.innerHTML = `<li data-id=${store.id}>${store.name}</li>`
+//     storeUl.appendChild(storeLi).classList.add('highlight')
+//     let ul = document.createElement('ul')
+
+//     for (let i of store.items) {
+//         // let tdItem = document.createElement('td')
+//         // let tdPrice = document.createElement('td')
+//         // let tdQuantity = document.createElement('td')
+//         // let itemRow = document.createElement('tr')
+
+//         for (let tI = 0; tI < i.length; tI++) {
+//             itemTable += "<tr>"
+//             html += "<td>" + i[tI].name + "</td>";
+//             html += "<td>" + i[tI].price + "</td>";
+//             html += "<td>" + i[tI].quantity + "</td>";
+
+//             html += "</tr>";
+//         }
+
+//         // tdItem.innerHTML = `${i['name']}`
+//         // tdPrice.innerHTML = `${i['price']}`
+//         // tdQuantity.innerHTML = `${i['quantity']}`
+
+//         // itemTable.tBodies[1].appendChild[itemRow]
+
+//         ul.appendChild(itemTable).classList.add
+//     }
+//     storeUl.appendChild(ul)
+//     storesContainer.appendChild(storeUl).classList.add('card')
+// })
