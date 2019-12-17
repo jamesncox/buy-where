@@ -12,13 +12,9 @@ class Api::V1::ItemsController < ApplicationController
     end
 
     def create
-        @item = Item.new(item_params)
+        @item = Item.create(items_params)
 
-        if @item.save
-          json_response(@item, :created)
-        else
-          render json: { message: 'Item was not created.' }
-        end
+        render json: @item, include: :store
     end 
 
     def update
