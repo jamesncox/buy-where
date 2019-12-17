@@ -22,7 +22,7 @@ class Api::V1::ItemsController < ApplicationController
     end 
 
     def update
-        @item = Item.find(params[:id])
+        @item = Item.find_by(id: params[:id])
         @item.update(item_params)
         # render json: ItemSerializer.new(@item), include: [:store]
         render json: @item, include: :store
@@ -36,6 +36,6 @@ class Api::V1::ItemsController < ApplicationController
     private
 
     def item_params 
-        params.require(:item).permit(:name, :quantity, :price)
+        params.require(:item).permit(:name, :price, :quantity)
     end
 end

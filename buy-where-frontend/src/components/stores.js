@@ -8,14 +8,12 @@ class Stores {
 
     storeBindingsAndEventListeners() {
         this.storesContainer = document.getElementById('stores-container')
-        // this.cardClass = document.getElementsByClassName('card shadow2')
         this.body = document.querySelector('body')
         this.newStoreName = document.getElementById('new-store-name')
         this.storeForm = document.getElementById('new-store-form')
         this.storeForm.addEventListener('submit', this.createStore.bind(this))
         this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
         this.body.addEventListener('blur', this.updateStore.bind(this), true)
-        console.log(this.name)
     }
 
     createStore(e) {
@@ -66,9 +64,9 @@ class Stores {
         // and not use this.storesContainer defined in storeBindingsAndEventListeners()?
         const storesContainer = document.getElementById('stores-container')
         const newItemForm = document.getElementById('new-item-form')
+        const newPriceForm = document.getElementById('new-price-form')
+        const newQuantityForm = document.getElementById('new-quantity-form')
 
-        // const cardClass = document.getElementsByClassName('card shadow2')
-        // storesContainer.container += " cardClass"
         // storesContainer.innerHTML = this.stores.map(store => store.renderStoreLi()).join('')
 
         this.stores.map(store => {
@@ -86,15 +84,13 @@ class Stores {
                 ul.appendChild(li).classList.add
             }
             storeUl.appendChild(ul)
-            // storesContainer.container += " cardClass"
             storesContainer.appendChild(storeUl).classList.add('card')
-
-
-            // storeUl.appendChild(newItemForm).style.display = "block"
         })
-
         // create a <p></p> or <span></span> to be able to reference an individual store that I can
         // grab the element and place an eventListener on, to render a formHTML() which has the items form.
     }
 
+    renderItemForm() {
+
+    }
 }
