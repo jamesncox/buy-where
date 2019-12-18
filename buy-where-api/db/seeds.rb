@@ -21,5 +21,3 @@ stores[1].items << item2
 stores[2].items << item3 
 stores[2].items << item4
 stores[2].items << item5
-
-
