@@ -67,7 +67,7 @@ class Stores {
 
             return store.html(itemHTML)
         }).join('')
-
         storesContainer.innerHTML = storeHTML
     }
+
 }

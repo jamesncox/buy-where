@@ -22,4 +22,5 @@ class Store {
             </ul>
         `)
     }
+
 }
