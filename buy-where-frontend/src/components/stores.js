@@ -71,24 +71,13 @@ class Stores {
 
         // storesContainer.innerHTML = this.stores.map(store => store.renderStoreLi()).join('')
 
-        this.stores.map(store => {
-            let storeUl = document.createElement('ul')
-            let storeLi = document.createElement('li')
+        const storeHTML = this.stores.map(store => {
+            const itemHTML = store.items.map(i => i.tableHTML).join('')
 
-            // let itemTable = document.getElementById('item-table')
+            return store.html(itemHTML)
+        }).join('')
 
-            storeLi.innerHTML = `<li data-id=${store.id}>${store.name}</li>`
-            storeUl.appendChild(storeLi).classList.add('highlight')
-            // let ul = document.createElement('ul')
-            // for (let i of store.items) {
-            //     let li = document.createElement('li')
-            //     li.setAttribute('data-id', i['id'])
-            //     li.innerHTML = `${i['name']}, ${i['price']}, ${i['quantity']}`
-            //     ul.appendChild(li)
-            // }
-            // storeUl.appendChild(ul)
-            storesContainer.appendChild(storeUl).classList.add('card')
-        })
+        storesContainer.innerHTML = storeHTML
     }
 }
 

@@ -1,7 +1,7 @@
 class Api::V1::ItemsController < ApplicationController
     def index
-        @item = Item.all 
-       
+        @items = Item.all 
+        
         render json: @items, status: 200
     end
 
