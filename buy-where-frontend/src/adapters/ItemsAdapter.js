@@ -7,9 +7,11 @@ class ItemsAdapter {
         return fetch(this.baseUrl).then(res => res.json())
     }
 
-    createItem(value) {
+    createItem(itemName, itemPrice, itemQuantity) {
         const item = {
-            name: value,
+            name: itemName,
+            price: itemPrice,
+            quantity: itemQuantity
         }
 
         return fetch(this.baseUrl, {
@@ -21,9 +23,11 @@ class ItemsAdapter {
         }).then(res => res.json())
     }
 
-    updateItem(value, id) {
+    updateItem(itemName, itemPrice, itemQuantity, id) {
         const item = {
-            name: value,
+            name: itemName,
+            price: itemPrice,
+            quantity: itemQuantity
         }
 
         return fetch(`${this.baseUrl}/${id}`, {
