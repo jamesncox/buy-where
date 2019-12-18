@@ -1,14 +1,15 @@
 class Api::V1::ItemsController < ApplicationController
     def index
         @item = Item.all 
-        # render json: ItemSerializer.new(@items), include: [:store]
+       
         render json: @items, status: 200
     end
 
     def show
         @item = Item.find_by(id: params[:id])
-        # render json: ItemSerializer.new(@item), include: [:store]
+       
         render json: @item, status: 200
+    end
 
     def create
         @item = Item.create(items_params)
@@ -19,7 +20,7 @@ class Api::V1::ItemsController < ApplicationController
     def update
         @item = Item.find_by(id: params[:id])
         @item.update(item_params)
-        # render json: ItemSerializer.new(@item), include: [:store]
+      
         render json: @item, status: 200
     end
     
@@ -30,7 +31,8 @@ class Api::V1::ItemsController < ApplicationController
 
     private
 
-    def item_params 
-        params.require(:item).permit(:name, :price, :quantity)
-    end
+        def item_params 
+            params.require(:item).permit(:name, :price, :quantity)
+        end
+    
 end

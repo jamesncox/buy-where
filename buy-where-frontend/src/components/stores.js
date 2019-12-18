@@ -75,24 +75,20 @@ class Stores {
             let storeUl = document.createElement('ul')
             let storeLi = document.createElement('li')
 
-            let itemTable = document.getElementById('item-table')
+            // let itemTable = document.getElementById('item-table')
 
             storeLi.innerHTML = `<li data-id=${store.id}>${store.name}</li>`
             storeUl.appendChild(storeLi).classList.add('highlight')
-            let ul = document.createElement('ul')
-            for (let i of store.items) {
-                let li = document.createElement('li')
-                li.setAttribute('data-id', i['id'])
-                li.innerHTML = `${i['name']}, ${i['price']}, ${i['quantity']}`
-                ul.appendChild(li)
-            }
-            storeUl.appendChild(ul)
+            // let ul = document.createElement('ul')
+            // for (let i of store.items) {
+            //     let li = document.createElement('li')
+            //     li.setAttribute('data-id', i['id'])
+            //     li.innerHTML = `${i['name']}, ${i['price']}, ${i['quantity']}`
+            //     ul.appendChild(li)
+            // }
+            // storeUl.appendChild(ul)
             storesContainer.appendChild(storeUl).classList.add('card')
         })
-    }
-
-    renderItemForm() {
-
     }
 }
 

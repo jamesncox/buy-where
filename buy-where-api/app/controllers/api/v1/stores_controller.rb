@@ -6,7 +6,8 @@ class Api::V1::StoresController < ApplicationController
         #     include: [:items]
         # }
         # render json: StoreSerializer.new(@stores, options), status: 200
-        render json: @stores, include: :items, status: 200
+        render json: @stores, include: :items,
+         status: 200
     end
 
     def show
@@ -42,7 +43,7 @@ class Api::V1::StoresController < ApplicationController
 
     private
 
-    def store_params 
-        params.require(:store).permit(:name)
-    end
+        def store_params 
+            params.require(:store).permit(:name)
+        end
 end
