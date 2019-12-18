@@ -7,9 +7,6 @@ class Items {
     }
 
     itemBindingsAndEventListeners() {
-        //currently I have everything still in stores-container (via renderStore()), 
-        //but I want all item data in a table. Is this where I would start to identify the table then
-        //create a renderItem() function that appends the item data to the table?
         this.itemsContainer = document.getElementById('items-container')
 
         this.body = document.querySelector('body')
@@ -68,10 +65,5 @@ class Items {
             .then(() => {
                 this.renderItem()
             })
-    }
-
-    renderItem() {
-        //map through items and render data here? Or keep it in renderStore()?
-        //somehow I need to display my new-item-form once a store is created.....
     }
 }

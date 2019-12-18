@@ -6,13 +6,6 @@ class Item {
         this.quantity = itemJSON.quantity
     }
 
-    // renderItemLi() {
-    //     let li = document.createElement('li')
-    //     li.setAttribute('data-id', i['id'])
-    //     li.innerHTML = `${i['name']}, ${i['price']}, ${i['quantity']}`
-    //     return li
-    // }
-
     get tableHTML() {
         return (`
             <tr>
