@@ -63,11 +63,11 @@ class Stores {
         // why do i need to have the const storesContainer defined here?
         // and not use this.storesContainer defined in storeBindingsAndEventListeners()?
         const storesContainer = document.getElementById('stores-container')
-        const newItemForm = document.getElementById('new-item-form')
-        const newPriceForm = document.getElementById('new-price-form')
-        const newQuantityForm = document.getElementById('new-quantity-form')
+        // const newItemForm = document.getElementById('new-item-form')
+        // const newPriceForm = document.getElementById('new-price-form')
+        // const newQuantityForm = document.getElementById('new-quantity-form')
 
-        const itemTable = document.getElementById('item-table')
+        // const itemTable = document.getElementById('item-table')
 
         // storesContainer.innerHTML = this.stores.map(store => store.renderStoreLi()).join('')
 
@@ -84,7 +84,7 @@ class Stores {
                 let li = document.createElement('li')
                 li.setAttribute('data-id', i['id'])
                 li.innerHTML = `${i['name']}, ${i['price']}, ${i['quantity']}`
-                ul.appendChild(li).classList.add
+                ul.appendChild(li)
             }
             storeUl.appendChild(ul)
             storesContainer.appendChild(storeUl).classList.add('card')
