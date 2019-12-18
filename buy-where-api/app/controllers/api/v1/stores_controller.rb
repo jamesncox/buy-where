@@ -34,6 +34,11 @@ class Api::V1::StoresController < ApplicationController
         render json: @store, include: :items, status: 200
     end
 
+    def destroy
+        @store.destroy
+        head :no_content
+    end
+
 
     private
 
