@@ -7,32 +7,36 @@ class Items {
     }
 
     itemBindingsAndEventListeners() {
-        this.storesContainer = document.getElementById('stores-container')
-        this.body = document.querySelector('body')
+        //currently I have everything still in stores-container (via renderStore()), 
+        //but I want all item data in a table. Is this where I do that?
+        this.itemsContainer = document.getElementById('items-container')
 
+        this.body = document.querySelector('body')
         this.newItemName = document.getElementById('new-item-name')
         this.newItemPrice = document.getElementById('new-item-price')
         this.newItemQuantity = document.getElementById('new-item-quantity')
 
         this.itemForm = document.getElementById('new-item-form')
         this.itemForm.addEventListener('submit', this.createItem.bind(this))
-        this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
-        this.body.addEventListener('blur', this.updateStore.bind(this), true)
+        this.itemsContainer.addEventListener('dblclick', this.handleItemClick.bind(this))
+        this.body.addEventListener('blur', this.updateItem.bind(this), true)
     }
 
     createItem(e) {
         e.preventDefault()
-        const value = this.newStoreName.value
+        const itemName = this.newItemName.value
+        const itemPrice = this.newItemPrice.value
+        const itemQuantity = this.newItemQuantity.value
 
-        this.adapter.createStore(value).then(store => {
-            this.stores.push(new Store(store))
-            this.newStoreName.value = ''
-            this.renderStore()
+        this.adapter.createItem(value).then(item => {
+            this.items.push(new Item(item))
+            this.newItemName.value = ''
+            this.renderItem()
         })
     }
 
     handleItemClick(e) {
-        this.toggleStore(e)
+        this.toggleItem(e)
     }
 
     toggleItem(e) {
@@ -49,7 +53,7 @@ class Items {
         li.classList.remove('editable')
         const newValue = li.innerHTML
         const id = li.dataset.id
-        this.adapter.updateStore(newValue, id)
+        this.adapter.updateItem(newValue, id)
     }
 
     fetchAndLoadItems() {
