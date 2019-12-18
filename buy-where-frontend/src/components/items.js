@@ -2,59 +2,67 @@ class Items {
     constructor() {
         this.items = []
         this.adapter = new ItemsAdapter()
-        // this.storeBindingsAndEventListeners()
-        // this.itemBindingsAndEventListeners()
+        this.itemBindingsAndEventListeners()
         this.fetchAndLoadItems()
     }
 
-    // storeBindingsAndEventListeners() {
-    //     this.storesContainer = document.getElementById('stores-container')
-    //     this.name = document.querySelector('name')
-    //     this.newStoreName = document.getElementById('store-name')
-    //     this.storeForm = document.getElementById('new-store-form')
-    //     this.storeForm.addEventListener('submit', this.createStore.bind(this))
-    //     this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
-    //     this.name.addEventListener('blur', this.updatStore.bind(this), true)
-    // }
+    itemBindingsAndEventListeners() {
+        this.storesContainer = document.getElementById('stores-container')
+        this.body = document.querySelector('body')
 
-    // itemBindingsAndEventListeners() {
+        this.newItemName = document.getElementById('new-item-name')
+        this.newItemPrice = document.getElementById('new-item-price')
+        this.newItemQuantity = document.getElementById('new-item-quantity')
 
-    // }
+        this.itemForm = document.getElementById('new-item-form')
+        this.itemForm.addEventListener('submit', this.createItem.bind(this))
+        this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
+        this.body.addEventListener('blur', this.updateStore.bind(this), true)
+    }
 
-    // createStore(e) {
-    //     e.preventDefault()
-    //     const value = this.newStoreName.value
+    createItem(e) {
+        e.preventDefault()
+        const value = this.newStoreName.value
 
-    //     this.adapter.createStore(value).then(store => {
-    //         this.stores.push(new Store(store))
-    //         this.newStoreName.value = ''
-    //         this.render()
-    //     })
-    // }
+        this.adapter.createStore(value).then(store => {
+            this.stores.push(new Store(store))
+            this.newStoreName.value = ''
+            this.renderStore()
+        })
+    }
 
-    // handleNoteClick(e) {
-    //     this.toggleStore(e)
-    // }
+    handleItemClick(e) {
+        this.toggleStore(e)
+    }
 
-    // toggleStore(e) {
-    //     const li = e.target
-    //     li.contentEditable = true
-    //     li.focus()
-    //     li.classList.add('editable')
-    // }
+    toggleItem(e) {
+        e.preventDefault()
+        const li = e.target
+        li.contentEditable = true
+        li.focus()
+        li.classList.add('editable')
+    }
 
-    // updateStore(e) {
-    //     const li = e.target
-    //     li.contentEditable = false
-    //     li.classList.remove('editable')
-    //     const newValue = li.innerHTML
-    //     const id = li.dataset.id
-    //     //console.log(id)
-    //     this.adapter.updateStore(newValue, id)
-    // }
+    updateItem(e) {
+        const li = e.target
+        li.contentEditable = false
+        li.classList.remove('editable')
+        const newValue = li.innerHTML
+        const id = li.dataset.id
+        this.adapter.updateStore(newValue, id)
+    }
+
+    fetchAndLoadItems() {
+        this.adapter
+            .getItems()
+            .then(items => {
+                items.forEach(item => this.items.push(new Item(item)))
+            })
+            .then(() => {
+                this.renderItem()
+            })
+    }
 
     renderItem() {
-        const itemsContainer = document.getElementById('items-container')
-        itemsContainer.innerHTML = this.items.map(item => item.renderLi()).join('')
     }
 }
