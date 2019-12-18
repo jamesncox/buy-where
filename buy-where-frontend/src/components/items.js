@@ -28,9 +28,11 @@ class Items {
         const itemPrice = this.newItemPrice.value
         const itemQuantity = this.newItemQuantity.value
 
-        this.adapter.createItem(value).then(item => {
+        this.adapter.createItem(itemName, itemPrice, itemQuantity).then(item => {
             this.items.push(new Item(item))
             this.newItemName.value = ''
+            this.newItemPrice.value = ''
+            this.newItemQuantity.value = ''
             this.renderItem()
         })
     }
