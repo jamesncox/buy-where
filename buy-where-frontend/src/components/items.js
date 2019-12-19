@@ -8,7 +8,7 @@ class Items {
 
     itemBindingsAndEventListeners() {
         this.itemsContainer = document.getElementById('items-container')
-        // this.storesContainer = documenet.getElemenyById('stores-container')
+
         this.body = document.querySelector('body')
 
         this.newItemName = document.getElementById('new-item-name')
@@ -41,24 +41,24 @@ class Items {
     }
 
     toggleItem(e) {
-        if (e.target.tagName === 'TD') {
-            e.preventDefault()
-            const li = e.target
-            li.contentEditable = true
-            li.focus()
-            li.classList.add('editable')
-        }
+        // if (e.target.tagName === 'TD') {
+        e.preventDefault()
+        const li = e.target
+        li.contentEditable = true
+        li.focus()
+        li.classList.add('editable')
+        // }
     }
 
     updateItem(e) {
-        if (e.target.tagName === 'TD') {
-            const li = e.target
-            li.contentEditable = false
-            li.classList.remove('editable')
-            const newValue = li.innerHTML
-            const id = li.dataset.id
-            this.adapter.updateItem(newValue, id)
-        }
+        // if (e.target.tagName === 'TD') {
+        const li = e.target
+        li.contentEditable = false
+        li.classList.remove('editable')
+        const newValue = li.innerHTML
+        const id = li.dataset.id
+        this.adapter.updateItem(newValue, id)
+        // }
     }
 
     fetchAndLoadItems() {
