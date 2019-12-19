@@ -32,20 +32,24 @@ class Stores {
     }
 
     toggleStore(e) {
-        e.preventDefault()
-        const li = e.target
-        li.contentEditable = true
-        li.focus()
-        li.classList.add('editable')
+        if (e.target.classList.contains('store-name')) {
+            e.preventDefault()
+            const li = e.target
+            li.contentEditable = true
+            li.focus()
+            li.classList.add('editable')
+        }
     }
 
     updateStore(e) {
-        const li = e.target
-        li.contentEditable = false
-        li.classList.remove('editable')
-        const newValue = li.innerHTML
-        const id = li.dataset.id
-        this.adapter.updateStore(newValue, id)
+        if (e.target.classList.contains('store-name')) {
+            const li = e.target
+            li.contentEditable = false
+            li.classList.remove('editable')
+            const newValue = li.innerHTML
+            const id = li.dataset.id
+            this.adapter.updateStore(newValue, id)
+        }
     }
 
     fetchAndLoadStores() {

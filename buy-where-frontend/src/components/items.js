@@ -8,6 +8,7 @@ class Items {
 
     itemBindingsAndEventListeners() {
         this.itemsContainer = document.getElementById('items-container')
+        this.storesContainer = documenet.getElemenyById('stores-container')
 
         this.body = document.querySelector('body')
         this.newItemName = document.getElementById('new-item-name')
@@ -16,7 +17,7 @@ class Items {
 
         this.itemForm = document.getElementById('new-item-form')
         this.itemForm.addEventListener('submit', this.createItem.bind(this))
-        this.itemsContainer.addEventListener('dblclick', this.handleItemClick.bind(this))
+        this.storesContainer.addEventListener('dblclick', this.handleItemClick.bind(this))
         this.body.addEventListener('blur', this.updateItem.bind(this), true)
     }
 
@@ -40,20 +41,24 @@ class Items {
     }
 
     toggleItem(e) {
-        e.preventDefault()
-        const li = e.target
-        li.contentEditable = true
-        li.focus()
-        li.classList.add('editable')
+        if (e.target.tagName === 'TD') {
+            e.preventDefault()
+            const li = e.target
+            li.contentEditable = true
+            li.focus()
+            li.classList.add('editable')
+        }
     }
 
     updateItem(e) {
-        const li = e.target
-        li.contentEditable = false
-        li.classList.remove('editable')
-        const newValue = li.innerHTML
-        const id = li.dataset.id
-        this.adapter.updateItem(newValue, id)
+        if (e.target.tagName === 'TD') {
+            const li = e.target
+            li.contentEditable = false
+            li.classList.remove('editable')
+            const newValue = li.innerHTML
+            const id = li.dataset.id
+            this.adapter.updateItem(newValue, id)
+        }
     }
 
     fetchAndLoadItems() {
