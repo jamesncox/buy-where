@@ -67,11 +67,22 @@ class Stores {
         const storesContainer = document.getElementById('stores-container')
 
         const storeHTML = this.stores.map(store => {
-            const itemHTML = store.items.map(i => i.tableHTML).join('')
+            const storeNameHTML = store
 
-            return store.html(itemHTML)
+            return store.storesHTML(storeNameHTML)
         }).join('')
         storesContainer.innerHTML = storeHTML
     }
+
+    // renderStore() {
+    //     const storesContainer = document.getElementById('stores-container')
+
+    //     const storeHTML = this.stores.map(store => {
+    //         const itemHTML = store.items.map(i => i.tableHTML).join('')
+
+    //         return store.html(itemHTML)
+    //     }).join('')
+    //     storesContainer.innerHTML = storeHTML
+    // }
 
 }

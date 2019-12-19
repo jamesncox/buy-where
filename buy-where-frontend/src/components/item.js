@@ -6,6 +6,21 @@ class Item {
         this.quantity = itemJSON.quantity
     }
 
+    itemsHTML(items) {
+        return (`
+            <ul class='card'>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                    ${items}
+                </table>
+            </ul>
+        `)
+    }
+
     get tableHTML() {
         return (`
             <tr>
@@ -16,9 +31,9 @@ class Item {
         `)
     }
 
-    get addItemButton() {
-        return (`
-            <button name="Add Item">Add Item</button>
-        `)
-    }
+    // get addItemButton() {
+    //     return (`
+    //         <button name="Add Item">Add Item</button>
+    //     `)
+    // }
 }
