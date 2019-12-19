@@ -7,8 +7,8 @@ class Store {
 
     html(items) {
         return (`
-            <ul class='card highlight'>
-                <li data-id=${this.id}>
+            <ul class='card'>
+                <li class='highlight' data-id=${this.id}>
                     ${this.name}
                 </li>
                 <table>

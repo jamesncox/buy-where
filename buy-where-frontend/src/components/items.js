@@ -66,4 +66,16 @@ class Items {
                 this.renderItem()
             })
     }
+
+    renderItem() {
+        const itemsContainer = document.getElementById('items-container')
+
+        const storeHTML = this.stores.map(store => {
+            const itemHTML = store.items.map(i => i.tableHTML).join('')
+
+            return store.html(itemHTML)
+        }).join('')
+        itemsContainer.innerHTML = storeHTML
+    }
+
 }
