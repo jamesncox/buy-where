@@ -11,6 +11,9 @@ class Store {
                 <li class='highlight store-name' data-id=${this.id}>
                     ${this.name}
                 </li>
+                <div id="items-container">
+
+                </div>
             </ul>
         `)
     }

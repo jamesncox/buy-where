@@ -41,24 +41,24 @@ class Items {
     }
 
     toggleItem(e) {
-        // if (e.target.tagName === 'TD') {
-        e.preventDefault()
-        const li = e.target
-        li.contentEditable = true
-        li.focus()
-        li.classList.add('editable')
-        // }
+        if (e.target.tagName === 'TD') {
+            e.preventDefault()
+            const li = e.target
+            li.contentEditable = true
+            li.focus()
+            li.classList.add('editable')
+        }
     }
 
     updateItem(e) {
-        // if (e.target.tagName === 'TD') {
-        const li = e.target
-        li.contentEditable = false
-        li.classList.remove('editable')
-        const newValue = li.innerHTML
-        const id = li.dataset.id
-        this.adapter.updateItem(newValue, id)
-        // }
+        if (e.target.tagName === 'TD') {
+            const li = e.target
+            li.contentEditable = false
+            li.classList.remove('editable')
+            const newValue = li.innerHTML
+            const id = li.dataset.id
+            this.adapter.updateItem(newValue, id)
+        }
     }
 
     fetchAndLoadItems() {
@@ -81,7 +81,7 @@ class Items {
 
             return item.itemsHTML(itemTableHTML)
         }).join('')
-
+        console.log(itemHTML)
         itemsContainer.innerHTML = itemHTML
     }
 

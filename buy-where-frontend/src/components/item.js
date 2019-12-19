@@ -7,9 +7,7 @@ class Item {
     }
 
     itemsHTML(items) {
-        return (`
-            <ul>     
-                <div id="items-container">
+        return (`  
                     <table>
                         <tr>
                             <th>Item</th>
@@ -18,8 +16,6 @@ class Item {
                         </tr>
                         ${items}
                     </table>
-                </div>
-            </ul>
         `)
     }
 
