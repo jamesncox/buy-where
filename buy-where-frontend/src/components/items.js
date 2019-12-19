@@ -3,7 +3,7 @@ class Items {
         this.items = []
         this.adapter = new ItemsAdapter()
         this.itemBindingsAndEventListeners()
-        this.fetchAndLoadItems()
+        // this.fetchAndLoadItems()
     }
 
     itemBindingsAndEventListeners() {
@@ -14,11 +14,12 @@ class Items {
         this.newItemName = document.getElementById('new-item-name')
         this.newItemPrice = document.getElementById('new-item-price')
         this.newItemQuantity = document.getElementById('new-item-quantity')
+        this.storesContainer = document.querySelector('#stores-container')
         this.itemForm = document.getElementById('new-item-form')
-
+        console.log(this.itemsContainer)
         this.itemForm.addEventListener('submit', this.createItem.bind(this))
-        this.itemsContainer.addEventListener('dblclick', this.handleItemClick.bind(this))
-        this.body.addEventListener('blur', this.updateItem.bind(this), true)
+        this.storesContainer.addEventListener('dblclick', this.handleItemClick.bind(this))
+        this.storesContainer.addEventListener('blur', this.updateItem.bind(this), true)
     }
 
     createItem(e) {
@@ -52,37 +53,37 @@ class Items {
 
     updateItem(e) {
         if (e.target.tagName === 'TD') {
+            //get e.target's parentElement
+            // iterate through all of the parent's children
             const li = e.target
             li.contentEditable = false
             li.classList.remove('editable')
             const newValue = li.innerHTML
             const id = li.dataset.id
+            console.log(newValue, id)
             this.adapter.updateItem(newValue, id)
         }
     }
 
-    fetchAndLoadItems() {
-        this.adapter
-            .getItems()
-            .then(items => {
-                items.forEach(item => this.items.push(new Item(item)))
-            })
-            .then(() => {
-                this.renderItem()
-            })
-    }
+    // fetchAndLoadItems() {
+    //     this.adapter
+    //         .getItems()
+    //         .then(items => {
+    //             items.forEach(item => this.items.push(new Item(item)))
+    //         })
+    //         .then(() => {
+    //             this.renderItem()
+    //         })
+    // }
 
-    renderItem() {
-        const itemsContainer = document.getElementById('items-container')
+    // renderItem() {
+    //     const itemHTML = this.items.map(item => {
 
-        const itemHTML = this.items.map(item => {
+    //         return item.tableHTML
 
-            const itemTableHTML = item.tableHTML
-
-            return item.itemsHTML(itemTableHTML)
-        }).join('')
-
-        itemsContainer.innerHTML = itemHTML
-    }
+    //     }).join('')
+    //     // console.log(itemHTML)
+    //     this.itemsContainer.innerHTML = itemHTML
+    // }
 
 }

@@ -6,26 +6,14 @@ class Item {
         this.quantity = itemJSON.quantity
     }
 
-    itemsHTML(items) {
-        return (`  
-                    <table>
-                        <tr>
-                            <th>Item</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                        </tr>
-                        ${items}
-                    </table>
-                    <button name="Add Item">Add Item</button>
-        `)
-    }
+
 
     get tableHTML() {
         return (`
             <tr>
-                <td>${this.name}</td>
-                <td>${this.price}</td>
-                <td>${this.quantity}</td>
+                <td data-id="${this.id}" data-type="name">${this.name}</td>
+                <td data-id="${this.id}" data-type="price">${this.price}</td>
+                <td data-id="${this.id}" data-type="quantity">${this.quantity}</td>
             </tr>
         `)
     }
