@@ -8,14 +8,18 @@ class Item {
 
     itemsHTML(items) {
         return (`
-                <table>
-                    <tr>
-                        <th>Item</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                    </tr>
-                    ${items}
-                </table>
+            <ul>     
+                <div id="items-container">
+                    <table>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                        ${items}
+                    </table>
+                </div>
+            </ul>
         `)
     }
 

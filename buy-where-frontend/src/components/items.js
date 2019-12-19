@@ -74,7 +74,6 @@ class Items {
 
     renderItem() {
         const itemsContainer = document.getElementById('items-container')
-        console.log(itemsContainer)
 
         const itemHTML = this.items.map(item => {
 
