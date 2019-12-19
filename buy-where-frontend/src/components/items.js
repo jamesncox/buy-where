@@ -8,7 +8,7 @@ class Items {
 
     itemBindingsAndEventListeners() {
         this.itemsContainer = document.getElementById('items-container')
-        this.storesContainer = documenet.getElemenyById('stores-container')
+        // this.storesContainer = documenet.getElemenyById('stores-container')
         this.body = document.querySelector('body')
 
         this.newItemName = document.getElementById('new-item-name')
@@ -17,7 +17,7 @@ class Items {
         this.itemForm = document.getElementById('new-item-form')
 
         this.itemForm.addEventListener('submit', this.createItem.bind(this))
-        this.storesContainer.addEventListener('dblclick', this.handleItemClick.bind(this))
+        this.itemsContainer.addEventListener('dblclick', this.handleItemClick.bind(this))
         this.body.addEventListener('blur', this.updateItem.bind(this), true)
     }
 
@@ -73,14 +73,17 @@ class Items {
     }
 
     renderItem() {
-        const storesContainer = document.getElementById('stores-container')
+        const itemsContainer = document.getElementById('items-container')
+        console.log(itemsContainer)
 
         const itemHTML = this.items.map(item => {
-            const itemTableHTML = items.map(i => i.tableHTML).join('')
 
-            return item.html(itemTableHTML)
+            const itemTableHTML = item.tableHTML
+
+            return item.itemsHTML(itemTableHTML)
         }).join('')
-        storesContainer.innerHTML = itemHTML
+
+        itemsContainer.innerHTML = itemHTML
     }
 
 }
