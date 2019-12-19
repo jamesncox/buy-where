@@ -5,17 +5,6 @@ class Store {
         this.items = storeJSON.items.map(io => new Item(io))
     }
 
-    // storesHTML() {
-    //     return (`
-    //         <ul class='card'>
-    //             <li class='highlight store-name' data-id=${this.id}>
-    //                 ${this.name}
-    //             </li>
-    //         </ul>
-    //     `)
-    // }
-
-
     html(items) {
         return (`
             <ul class='card'>
@@ -36,6 +25,5 @@ class Store {
             </ul>
         `)
     }
-
 
 }

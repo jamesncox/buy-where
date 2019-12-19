@@ -16,7 +16,7 @@ class Items {
         this.newItemQuantity = document.getElementById('new-item-quantity')
         this.storesContainer = document.querySelector('#stores-container')
         this.itemForm = document.getElementById('new-item-form')
-        console.log(this.itemsContainer)
+
         this.itemForm.addEventListener('submit', this.createItem.bind(this))
         this.storesContainer.addEventListener('dblclick', this.handleItemClick.bind(this))
         this.storesContainer.addEventListener('blur', this.updateItem.bind(this), true)
@@ -42,7 +42,26 @@ class Items {
     }
 
     toggleItem(e) {
-        if (e.target.tagName === 'TD') {
+        if (e.target.classList.contains('store-name')) {
+
+            e.preventDefault()
+            const li = e.target
+            li.contentEditable = true
+            li.focus()
+            li.classList.add('editable')
+        }
+
+        if (e.target.dataset['price'] = 'price') {
+
+            e.preventDefault()
+            const li = e.target
+            li.contentEditable = true
+            li.focus()
+            li.classList.add('editable')
+        }
+
+        if (e.target.dataset['quantity'] = 'quantity') {
+
             e.preventDefault()
             const li = e.target
             li.contentEditable = true
@@ -52,15 +71,36 @@ class Items {
     }
 
     updateItem(e) {
-        if (e.target.tagName === 'TD') {
-            //get e.target's parentElement
-            // iterate through all of the parent's children
+        if (e.target.classList.contains('store-name')) {
+
             const li = e.target
             li.contentEditable = false
             li.classList.remove('editable')
             const newValue = li.innerHTML
             const id = li.dataset.id
-            console.log(newValue, id)
+
+            this.adapter.updateItem(newValue, id)
+        }
+
+        if (e.target.dataset['price'] = 'price') {
+
+            const li = e.target
+            li.contentEditable = false
+            li.classList.remove('editable')
+            const newValue = li.innerHTML
+            const id = li.dataset.id
+
+            this.adapter.updateItem(newValue, id)
+        }
+
+        if (e.target.dataset['quantity'] = 'quantity') {
+
+            const li = e.target
+            li.contentEditable = false
+            li.classList.remove('editable')
+            const newValue = li.innerHTML
+            const id = li.dataset.id
+
             this.adapter.updateItem(newValue, id)
         }
     }

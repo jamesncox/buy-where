@@ -111,4 +111,12 @@ h2 {
   #stores-container li {
     list-style-type: none;
   }
+
+  /* td[data-type='name'] {
+    background: #8BC34A;
+  }
   
+  td[data-type='price'] {
+    background: #3F51B5;
+  }
+   */
