@@ -16,6 +16,7 @@ class Item {
                         </tr>
                         ${items}
                     </table>
+                    <button name="Add Item">Add Item</button>
         `)
     }
 

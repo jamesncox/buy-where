@@ -81,7 +81,7 @@ class Items {
 
             return item.itemsHTML(itemTableHTML)
         }).join('')
-        console.log(itemHTML)
+
         itemsContainer.innerHTML = itemHTML
     }
 
