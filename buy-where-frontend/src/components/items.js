@@ -42,68 +42,24 @@ class Items {
     }
 
     toggleItem(e) {
-        if (e.target.classList.contains('store-name')) {
-
-            e.preventDefault()
-            const li = e.target
-            li.contentEditable = true
-            li.focus()
-            li.classList.add('editable')
-        }
-
-        if (e.target.dataset['price'] = 'price') {
-
-            e.preventDefault()
-            const li = e.target
-            li.contentEditable = true
-            li.focus()
-            li.classList.add('editable')
-        }
-
-        if (e.target.dataset['quantity'] = 'quantity') {
-
-            e.preventDefault()
-            const li = e.target
-            li.contentEditable = true
-            li.focus()
-            li.classList.add('editable')
-        }
+        e.preventDefault()
+        const li = e.target
+        li.contentEditable = true
+        li.focus()
+        li.classList.add('editable')
     }
+
 
     updateItem(e) {
-        if (e.target.classList.contains('store-name')) {
+        const li = e.target
+        li.contentEditable = false
+        li.classList.remove('editable')
+        const newValue = li.innerHTML
+        const id = li.dataset.id
 
-            const li = e.target
-            li.contentEditable = false
-            li.classList.remove('editable')
-            const newValue = li.innerHTML
-            const id = li.dataset.id
-
-            this.adapter.updateItem(newValue, id)
-        }
-
-        if (e.target.dataset['price'] = 'price') {
-
-            const li = e.target
-            li.contentEditable = false
-            li.classList.remove('editable')
-            const newValue = li.innerHTML
-            const id = li.dataset.id
-
-            this.adapter.updateItem(newValue, id)
-        }
-
-        if (e.target.dataset['quantity'] = 'quantity') {
-
-            const li = e.target
-            li.contentEditable = false
-            li.classList.remove('editable')
-            const newValue = li.innerHTML
-            const id = li.dataset.id
-
-            this.adapter.updateItem(newValue, id)
-        }
+        this.adapter.updateItem(newValue, id)
     }
+
 
     // fetchAndLoadItems() {
     //     this.adapter

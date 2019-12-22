@@ -22,6 +22,7 @@ class Store {
                     </div>
                     
                 </table>
+                <button name="Add Item">Add Item</button>
             </ul>
         `)
     }
