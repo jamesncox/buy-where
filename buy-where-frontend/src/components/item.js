@@ -17,10 +17,4 @@ class Item {
             </tr>
         `)
     }
-
-    // get addItemButton() {
-    //     return (`
-    //         <button name="Add Item">Add Item</button>
-    //     `)
-    // }
 }
