@@ -45,21 +45,24 @@ class Items {
 
     toggleItem(e) {
         e.preventDefault()
-        const li = e.target
-        li.contentEditable = true
-        li.focus()
-        li.classList.add('editable')
+        const td = e.target
+        td.contentEditable = true
+        td.focus()
+        td.classList.add('editable')
     }
 
 
     updateItem(e) {
-        const li = e.target
-        li.contentEditable = false
-        li.classList.remove('editable')
-        const newValue = li.innerHTML
-        const id = li.dataset.id
+        const td = e.target
+        console.log(e.target)
+        td.contentEditable = false
+        td.classList.remove('editable')
+        const newNameValue = td.innerHTML
+        const newPriceValue = td.innerHTML
+        const newQuantityValue = td.innerHTML
+        const id = e.target.dataset.id
 
-        this.adapter.updateItem(newValue, id)
+        this.adapter.updateItem(newNameValue, newPriceValue, newQuantityValue, id)
     }
 
     addItemButton() {

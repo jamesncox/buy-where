@@ -8,6 +8,7 @@ class ItemsAdapter {
     }
 
     createItem(itemName, itemPrice, itemQuantity) {
+
         const item = {
             name: itemName,
             price: itemPrice,
