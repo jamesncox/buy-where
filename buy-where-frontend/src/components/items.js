@@ -8,7 +8,7 @@ class Items {
     itemBindingsAndEventListeners() {
         this.itemsContainer = document.getElementById('items-container')
         // this.addItemButton = document.getElementById('add-item-button')
-        this.itemName = document.getElementsByClassName('item-name')
+        this.itemName = document.querySelector('item-name')
         console.log(this.itemName)
 
         this.body = document.querySelector('body')
@@ -46,7 +46,6 @@ class Items {
     }
 
     editItem(e) {
-        console.log(e.target)
         if (e.target.classList.contains('item-name')) {
             e.preventDefault()
             console.log(e.target)
