@@ -25,6 +25,7 @@ class ItemsAdapter {
     }
 
     updateItem(itemName, itemPrice, itemQuantity, id) {
+
         const item = {
             name: itemName,
             price: itemPrice,

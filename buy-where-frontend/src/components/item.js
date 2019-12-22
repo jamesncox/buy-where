@@ -18,4 +18,34 @@ class Item {
         `)
     }
 
+    addItemForm() {
+        return (`
+            <form id="new-item-form">
+                <label>What did you buy?</label>
+                <input type="text" id="new-item-name" placeholder="Item name">
+                <input type="submit" id="item-btn" value="Submit">
+                <br>
+                <label>How much did it cost?</label>
+                <input type="text" id="new-item-price" placeholder="Item cost" />
+                <input type="submit" id="price-btn" value="Submit" />
+                <br>
+                <label>How many did you purchase?</label>
+                <input type="text" id="new-item-quantity" placeholder="Item quantity" />
+                <input type="submit" id="quantity-btn" value="Submit" />
+            </form>
+        `)
+    }
+
 }
+
+
+
+
+
+// function openAddItemForm() {
+//     document.getElementById("new-item-form").style.display = "block";
+//   }
+
+//   function closeAddItemForm() {
+//     document.getElementById("new-item-form").style.display = "none";
+//   }
