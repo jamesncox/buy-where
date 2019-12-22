@@ -8,6 +8,7 @@ class Stores {
 
     storeBindingsAndEventListeners() {
         this.storesContainer = document.getElementById('stores-container')
+        // this.storeNameId = document.getElementById('name-of-store')
 
         this.body = document.querySelector('body')
 
@@ -16,6 +17,8 @@ class Stores {
 
         this.storeForm.addEventListener('submit', this.createStore.bind(this))
         this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
+        // this.storeNameId.addEventListener('dblclick', this.handleStoreClick.bind(this))
+
         this.body.addEventListener('blur', this.updateStore.bind(this), true)
     }
 

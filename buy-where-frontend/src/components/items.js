@@ -8,6 +8,7 @@ class Items {
 
     itemBindingsAndEventListeners() {
         this.itemsContainer = document.getElementById('items-container')
+        // this.addItemButton = document.getElementById('add-item-button')
 
         this.body = document.querySelector('body')
 
@@ -20,6 +21,8 @@ class Items {
         this.itemForm.addEventListener('submit', this.createItem.bind(this))
         this.storesContainer.addEventListener('dblclick', this.handleItemClick.bind(this))
         this.storesContainer.addEventListener('blur', this.updateItem.bind(this), true)
+
+        // this.addItemButton.addEventListener('click', this.addItemButton())
     }
 
     createItem(e) {
@@ -33,7 +36,6 @@ class Items {
             this.newItemName.value = ''
             this.newItemPrice.value = ''
             this.newItemQuantity.value = ''
-            this.renderItem()
         })
     }
 
@@ -58,6 +60,10 @@ class Items {
         const id = li.dataset.id
 
         this.adapter.updateItem(newValue, id)
+    }
+
+    addItemButton() {
+        console.log('clicked...')
     }
 
 
