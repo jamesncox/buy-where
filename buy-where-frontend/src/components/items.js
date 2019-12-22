@@ -44,25 +44,68 @@ class Items {
     }
 
     toggleItem(e) {
-        e.preventDefault()
-        const td = e.target
-        td.contentEditable = true
-        td.focus()
-        td.classList.add('editable')
+        if (e.target.classList.contains('item-name')) {
+            e.preventDefault()
+            const td = e.target
+            td.contentEditable = true
+            td.focus()
+            td.classList.add('editable')
+        }
+
+        if (e.target.classList.contains('item-price')) {
+            e.preventDefault()
+            const td = e.target
+            td.contentEditable = true
+            td.focus()
+            td.classList.add('editable')
+        }
+
+        if (e.target.classList.contains('item-quantity')) {
+            e.preventDefault()
+            const td = e.target
+            td.contentEditable = true
+            td.focus()
+            td.classList.add('editable')
+        }
     }
 
 
     updateItem(e) {
-        const td = e.target
-        console.log(e.target)
-        td.contentEditable = false
-        td.classList.remove('editable')
-        const newNameValue = td.innerHTML
-        const newPriceValue = td.innerHTML
-        const newQuantityValue = td.innerHTML
-        const id = e.target.dataset.id
+        if (e.target.classList.contains('item-name')) {
+            const td = e.target
+            console.log(e.target)
+            td.contentEditable = false
+            td.classList.remove('editable')
+            const newNameValue = td.innerHTML
+            const newPriceValue = td.innerHTML
+            const newQuantityValue = td.innerHTML
+            const id = e.target.dataset.id
+            this.adapter.updateItem(newNameValue, newPriceValue, newQuantityValue, id)
+        }
 
-        this.adapter.updateItem(newNameValue, newPriceValue, newQuantityValue, id)
+        if (e.target.classList.contains('item-price')) {
+            const td = e.target
+            console.log(e.target)
+            td.contentEditable = false
+            td.classList.remove('editable')
+            const newNameValue = td.innerHTML
+            const newPriceValue = td.innerHTML
+            const newQuantityValue = td.innerHTML
+            const id = e.target.dataset.id
+            this.adapter.updateItem(newNameValue, newPriceValue, newQuantityValue, id)
+        }
+
+        if (e.target.classList.contains('item-quantity')) {
+            const td = e.target
+            console.log(e.target)
+            td.contentEditable = false
+            td.classList.remove('editable')
+            const newNameValue = td.innerHTML
+            const newPriceValue = td.innerHTML
+            const newQuantityValue = td.innerHTML
+            const id = e.target.dataset.id
+            this.adapter.updateItem(newNameValue, newPriceValue, newQuantityValue, id)
+        }
     }
 
     addItemButton() {
