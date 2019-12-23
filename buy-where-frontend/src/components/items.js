@@ -128,8 +128,6 @@ class Items {
         newItemForm = document.getElementById('new-item-form')
 
         newitemForm.style.display = 'block'
-
-
     }
 
 }
