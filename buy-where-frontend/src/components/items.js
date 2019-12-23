@@ -7,9 +7,9 @@ class Items {
 
     itemBindingsAndEventListeners() {
         this.itemsContainer = document.getElementById('items-container')
-        // this.addItemButton = document.getElementById('add-item-button')
-        this.itemName = document.querySelector('item-name')
-        console.log(this.itemName)
+        this.addItemButton = document.getElementById('add-item-button')
+        console.log(this.addItemButton)
+        // this.itemName = document.getElementsByClassName('item-name')
 
         this.body = document.querySelector('body')
 
@@ -21,10 +21,10 @@ class Items {
 
         this.itemForm.addEventListener('submit', this.createItem.bind(this))
         // this.storesContainer.addEventListener('dblclick', this.handleItemClick.bind(this))
-        this.itemName.addEventListener('click', this.handleItemClick.bind(this))
-        this.storesContainer.addEventListener('blur', this.updateItem.bind(this), true)
+        // this.itemName.addEventListener('click', this.handleItemClick.bind(this))
+        // this.storesContainer.addEventListener('blur', this.updateItem.bind(this), true)
 
-        // this.addItemButton.addEventListener('click', this.renderNewItemForm())
+        this.addItemButton.addEventListener('click', this.renderNewItemForm())
     }
 
     createItem(e) {
@@ -41,16 +41,16 @@ class Items {
         })
     }
 
-    handleItemClick(e) {
-        this.editItem(e)
-    }
+    // handleItemClick(e) {
+    //     this.editItem(e)
+    // }
 
-    editItem(e) {
-        if (e.target.classList.contains('item-name')) {
-            e.preventDefault()
-            console.log(e.target)
-        }
-    }
+    // editItem(e) {
+    //     if (e.target.classList.contains('item-name')) {
+    //         e.preventDefault()
+    //         console.log(e.target)
+    //     }
+    // }
 
     // handleItemClick(e) {
     //     this.toggleItem(e)
@@ -124,6 +124,10 @@ class Items {
 
     renderNewItemForm() {
         console.log('clicked...')
+
+        newItemForm = document.getElementById('new-item-form')
+
+        newitemForm.style.display = 'block'
 
 
     }
