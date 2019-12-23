@@ -7,8 +7,7 @@ class Items {
 
     itemBindingsAndEventListeners() {
         this.itemsContainer = document.getElementById('items-container')
-        this.addItemButton = document.getElementById('add-item-button')
-        console.log(this.addItemButton)
+        // this.addItemButton = document.getElementById('add-item-button')
         // this.itemName = document.getElementsByClassName('item-name')
 
         this.body = document.querySelector('body')
@@ -24,7 +23,7 @@ class Items {
         // this.itemName.addEventListener('click', this.handleItemClick.bind(this))
         // this.storesContainer.addEventListener('blur', this.updateItem.bind(this), true)
 
-        this.addItemButton.addEventListener('click', this.renderNewItemForm())
+        // this.addItemButton.addEventListener('click', this.renderNewItemForm())
     }
 
     createItem(e) {
@@ -121,13 +120,5 @@ class Items {
     //         this.adapter.updateItem(newNameValue, newPriceValue, newQuantityValue, id)
     //     }
     // }
-
-    renderNewItemForm() {
-        console.log('clicked...')
-
-        newItemForm = document.getElementById('new-item-form')
-
-        newitemForm.style.display = 'block'
-    }
 
 }

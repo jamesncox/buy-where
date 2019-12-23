@@ -15,6 +15,8 @@ class Stores {
         this.newStoreName = document.getElementById('new-store-name')
         this.storeForm = document.getElementById('new-store-form')
 
+        this.newItemForm = document.getElementById('new-item-form')
+
         this.storeForm.addEventListener('submit', this.createStore.bind(this))
         this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
         // this.storeNameId.addEventListener('dblclick', this.handleStoreClick.bind(this))
@@ -78,6 +80,23 @@ class Stores {
             return store.html(itemHTML)
         }).join('')
         storesContainer.innerHTML = storeHTML
+
+        this.invokeItemListeners()
+    }
+
+    invokeItemListeners() {
+        this.addItemButton = document.getElementById('add-item-button')
+        console.log(this.addItemButton)
+        this.addItemButton.addEventListener('click', this.renderNewItemForm.bind(this))
+    }
+
+    renderNewItemForm() {
+        console.log('clicked...')
+
+        this.newItemForm = document.getElementById('new-item-form')
+        console.log(newItemForm)
+
+        newitemForm.style.display = 'block'
     }
 
 }
