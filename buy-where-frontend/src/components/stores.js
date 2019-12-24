@@ -73,7 +73,6 @@ class Stores {
 
     renderStore() {
         const storesContainer = document.getElementById('stores-container')
-        const newItemForm = document.getElementById('new-item-form')
 
         const storeHTML = this.stores.map(store => {
             const itemHTML = store.items.map(i => i.tableHTML).join('')
@@ -86,10 +85,14 @@ class Stores {
     }
 
     invokeItemListeners() {
-        this.addItemButton = document.getElementById('add-item-button')
         this.newItemForm = document.getElementById('new-item-form')
+        this.addItemButton = document.querySelectorAll('#add-item-button')
 
-        this.addItemButton.addEventListener('click', this.renderNewItemForm.bind(this))
+        if (this.addItemButton) {
+            this.addItemButton.forEach(button => {
+                button.addEventListener('click', this.renderNewItemForm.bind(this))
+            })
+        }
     }
 
     renderNewItemForm(e) {
