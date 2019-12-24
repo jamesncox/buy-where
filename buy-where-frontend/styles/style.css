@@ -103,6 +103,11 @@ h2 {
   #new-item-form {
     display: none;
   }
+  #new-item-from {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
 
   #new-store-form {
     text-align: center

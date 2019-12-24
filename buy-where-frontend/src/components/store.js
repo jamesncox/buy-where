@@ -22,7 +22,20 @@ class Store {
                     </div>
                     
                 </table>
+
                 <button id="add-item-button">Add Item</button>
+
+                <form class='card' id="new-item-form">
+                <label>Item name: </label>
+                <input type="text" id="new-item-name" placeholder="Item name">
+                <br>
+                <label>Item cost: </label>
+                <input type="text" id="new-item-price" placeholder="Item cost" />
+                <br>
+                <label>Item quantity: </label>
+                <input type="text" id="new-item-quantity" placeholder="Item quantity" />
+                <input type="submit" id="item-submit" value="Submit" />
+            </form>
             </ul>
         `)
     }

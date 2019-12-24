@@ -16,9 +16,9 @@ class Items {
         this.newItemPrice = document.getElementById('new-item-price')
         this.newItemQuantity = document.getElementById('new-item-quantity')
         this.storesContainer = document.querySelector('#stores-container')
-        this.itemForm = document.getElementById('new-item-form')
+        // this.itemForm = document.getElementById('new-item-form')
 
-        this.itemForm.addEventListener('submit', this.createItem.bind(this))
+        // this.itemForm.addEventListener('submit', this.createItem.bind(this))
         // this.storesContainer.addEventListener('dblclick', this.handleItemClick.bind(this))
         // this.itemName.addEventListener('click', this.handleItemClick.bind(this))
         // this.storesContainer.addEventListener('blur', this.updateItem.bind(this), true)
