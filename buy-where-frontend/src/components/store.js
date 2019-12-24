@@ -34,6 +34,7 @@ class Store {
                 <br>
                 <label>Item quantity: </label>
                 <input type="text" id="new-item-quantity" placeholder="Item quantity" />
+                <br>
                 <input type="submit" id="item-submit" value="Submit" />
             </form>
             </ul>
