@@ -109,6 +109,10 @@ class Stores {
         const itemPrice = this.newItemPrice.value
         const itemQuantity = this.newItemQuantity.value
 
+        console.log(itemName)
+        console.log(itemPrice)
+        console.log(itemQuantity)
+
         this.itemsAdapter.createItem(itemName, itemPrice, itemQuantity).then(item => {
             this.items.push(new Item(item))
             this.itemName = ''

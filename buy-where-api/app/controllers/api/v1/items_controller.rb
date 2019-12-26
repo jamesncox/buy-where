@@ -10,7 +10,7 @@ class Api::V1::ItemsController < ApplicationController
     end
 
     def create
-        @item = Item.create(items_params)
+        @item = Item.create(item_params)
         render json: @item, include: :store, status: 200
     end 
 
