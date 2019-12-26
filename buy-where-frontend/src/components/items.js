@@ -26,19 +26,19 @@ class Items {
         // this.addItemButton.addEventListener('click', this.renderNewItemForm())
     }
 
-    createItem(e) {
-        e.preventDefault()
-        const itemName = this.newItemName.value
-        const itemPrice = this.newItemPrice.value
-        const itemQuantity = this.newItemQuantity.value
+    // createItem(e) {
+    //     e.preventDefault()
+    //     const itemName = this.newItemName.value
+    //     const itemPrice = this.newItemPrice.value
+    //     const itemQuantity = this.newItemQuantity.value
 
-        this.adapter.createItem(itemName, itemPrice, itemQuantity).then(item => {
-            this.items.push(new Item(item))
-            this.newItemName.value = ''
-            this.newItemPrice.value = ''
-            this.newItemQuantity.value = ''
-        })
-    }
+    //     this.adapter.createItem(itemName, itemPrice, itemQuantity).then(item => {
+    //         this.items.push(new Item(item))
+    //         this.newItemName.value = ''
+    //         this.newItemPrice.value = ''
+    //         this.newItemQuantity.value = ''
+    //     })
+    // }
 
     // handleItemClick(e) {
     //     this.editItem(e)

@@ -1,26 +1,21 @@
 class Stores {
     constructor() {
         this.stores = []
+        this.items = []
         this.adapter = new StoresAdapter()
+        this.itemsAdapter = new ItemsAdapter()
         this.storeBindingsAndEventListeners()
         this.fetchAndLoadStores()
     }
 
     storeBindingsAndEventListeners() {
         this.storesContainer = document.getElementById('stores-container')
-        // this.storeNameId = document.getElementById('name-of-store')
-
         this.body = document.querySelector('body')
-
         this.newStoreName = document.getElementById('new-store-name')
         this.storeForm = document.getElementById('new-store-form')
 
-        this.newItemForm = document.getElementById('new-item-form')
-
         this.storeForm.addEventListener('submit', this.createStore.bind(this))
         this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
-        // this.storeNameId.addEventListener('dblclick', this.handleStoreClick.bind(this))
-
         this.body.addEventListener('blur', this.updateStore.bind(this), true)
     }
 
@@ -88,6 +83,14 @@ class Stores {
         this.newItemForm = document.getElementById('new-item-form')
         this.addItemButton = document.querySelectorAll('#add-item-button')
 
+        this.newItemForm = document.getElementById('new-item-form')
+
+        this.newItemName = document.getElementById('new-item-name')
+        this.newItemPrice = document.getElementById('new-item-price')
+        this.newItemQuantity = document.getElementById('new-item-quantity')
+
+        this.newItemForm.addEventListener('submit', this.createItems.bind(this))
+
         if (this.addItemButton) {
             this.addItemButton.forEach(button => {
                 button.addEventListener('click', this.renderNewItemForm.bind(this))
@@ -95,8 +98,25 @@ class Stores {
         }
     }
 
-    renderNewItemForm(e) {
+    renderNewItemForm() {
         this.newItemForm.style.display = 'block'
+    }
+
+    createItems(e) {
+        e.preventDefault()
+
+        const itemName = this.newItemName.value
+        const itemPrice = this.newItemPrice.value
+        const itemQuantity = this.newItemQuantity.value
+
+        this.itemsAdapter.createItem(itemName, itemPrice, itemQuantity).then(item => {
+            this.items.push(new Item(item))
+            this.itemName = ''
+            this.itemPrice = ''
+            this.itemQuantity = ''
+            this.renderStore()
+        })
+
     }
 
 }
