@@ -113,7 +113,6 @@ class Stores {
         this.itemsAdapter.createItem(itemName, itemPrice, itemQuantity).then(item => {
             console.log(item)
             // item id and store are "null" so not being saved to the database because not associated with a store?
-            // something like if store.id === item.id push this?
             this.stores.push(new Store(item))
             this.itemName = ''
             this.itemPrice = ''

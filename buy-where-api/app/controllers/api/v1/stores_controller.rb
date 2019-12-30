@@ -31,4 +31,5 @@ class Api::V1::StoresController < ApplicationController
         def store_params 
             params.require(:store).permit(:name)
         end
+
 end
