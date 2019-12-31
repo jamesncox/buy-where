@@ -2,7 +2,7 @@ class Stores {
     constructor() {
         this.stores = []
         this.items = []
-        this.adapter = new StoresAdapter()
+        this.storesAdapter = new StoresAdapter()
         this.itemsAdapter = new ItemsAdapter()
         this.storeBindingsAndEventListeners()
         this.fetchAndLoadStores()
@@ -51,12 +51,12 @@ class Stores {
             li.classList.remove('editable')
             const newValue = li.innerHTML
             const id = li.dataset.id
-            this.adapter.updateStore(newValue, id)
+            this.storesAdapter.updateStore(newValue, id)
         }
     }
 
     fetchAndLoadStores() {
-        this.adapter
+        this.storesAdapter
             .getStores()
             .then(stores => {
                 stores.forEach(store => this.stores.push(new Store(store)))
@@ -113,7 +113,8 @@ class Stores {
         this.itemsAdapter.createItem(itemName, itemPrice, itemQuantity).then(item => {
             console.log(item)
             // item id and store are "null" so not being saved to the database because not associated with a store?
-            this.stores.push(new Store(item))
+            this.items.push(new Item(item))
+            console.log(this.items)
             this.itemName = ''
             this.itemPrice = ''
             this.itemQuantity = ''
