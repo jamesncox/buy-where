@@ -7,7 +7,7 @@ class Item {
     }
 
 
-
+    //define the elements inside the item table html.
     get tableHTML() {
         return (`
             <tr>

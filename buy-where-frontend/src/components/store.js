@@ -5,6 +5,7 @@ class Store {
         this.items = storeJSON.items.map(io => new Item(io))
     }
 
+    //create the html for displaying stores and items in a card class and dynamically create table for items.
     html(items) {
         return (`
             <ul class='card'>

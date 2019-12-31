@@ -8,6 +8,7 @@ class Stores {
         this.fetchAndLoadStores()
     }
 
+    //bind html elements related to Store and sets eventListeners for user interactions.
     storeBindingsAndEventListeners() {
         this.storesContainer = document.getElementById('stores-container')
         this.body = document.querySelector('body')
@@ -19,6 +20,7 @@ class Stores {
         this.body.addEventListener('blur', this.updateStore.bind(this), true)
     }
 
+    //call on the createStore() function in StoresAdapter to create a new store name.
     createStore(e) {
         e.preventDefault()
         const value = this.newStoreName.value
@@ -30,10 +32,12 @@ class Stores {
         })
     }
 
+    //call on toggleStore() when store is double clicked.
     handleStoreClick(e) {
         this.toggleStore(e)
     }
 
+    //set the store name element to become editable when clicked on.
     toggleStore(e) {
         if (e.target.classList.contains('store-name')) {
             e.preventDefault()
@@ -44,6 +48,7 @@ class Stores {
         }
     }
 
+    //if store-name element is clicked, send the updated value to the database when the user clicks away on another element.
     updateStore(e) {
         if (e.target.classList.contains('store-name')) {
             const li = e.target
@@ -55,6 +60,7 @@ class Stores {
         }
     }
 
+    //grab all the stores and related items from the database. call on renderStore().
     fetchAndLoadStores() {
         this.storesAdapter
             .getStores()
@@ -66,6 +72,8 @@ class Stores {
             })
     }
 
+    //display the stores and items in a format defined in store.js and item.js.
+    //call on invokeItemListeners when the dynamically created elements are set.
     renderStore() {
         const storesContainer = document.getElementById('stores-container')
 
@@ -79,6 +87,7 @@ class Stores {
         this.invokeItemListeners()
     }
 
+    //bind new dynamically create elements and set event listeners for new elements.
     invokeItemListeners() {
         this.newItemForm = document.getElementById('new-item-form')
         this.addItemButton = document.querySelectorAll('#add-item-button')
@@ -98,11 +107,13 @@ class Stores {
         }
     }
 
+    //display new-item-form when Edit Item button is clicked.
     renderNewItemForm() {
         this.newItemForm.style.display = 'block'
         // only rendering for the first Store in my database....even if I click another store's addItemButton
     }
 
+    //create new item in new-item-form and send to the database.
     createItems(e) {
         e.preventDefault()
 

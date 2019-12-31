@@ -7,6 +7,7 @@ class ItemsAdapter {
         return fetch(this.baseUrl).then(res => res.json())
     }
 
+    //send a new item and its properties to the database.
     createItem(itemName, itemPrice, itemQuantity) {
 
         const item = {
@@ -24,6 +25,7 @@ class ItemsAdapter {
         }).then(res => res.json())
     }
 
+    //modify an item and its properties and send them to the database.
     updateItem(itemName, itemPrice, itemQuantity, id) {
 
         const item = {
