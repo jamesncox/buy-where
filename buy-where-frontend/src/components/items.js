@@ -5,6 +5,7 @@ class Items {
         this.itemBindingsAndEventListeners()
     }
 
+    //currently I am not using any of the code in my Items class.
     itemBindingsAndEventListeners() {
         this.itemsContainer = document.getElementById('items-container')
         // this.addItemButton = document.getElementById('add-item-button')

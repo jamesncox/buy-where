@@ -87,7 +87,7 @@ class Stores {
         this.invokeItemListeners()
     }
 
-    //bind new dynamically create elements and set event listeners for new elements.
+    //bind new dynamically created elements and set event listeners for new elements.
     invokeItemListeners() {
         this.newItemForm = document.getElementById('new-item-form')
         this.addItemButton = document.querySelectorAll('#add-item-button')
@@ -123,9 +123,8 @@ class Stores {
 
         this.itemsAdapter.createItem(itemName, itemPrice, itemQuantity).then(item => {
             console.log(item)
-            // item id and store are "null" so not being saved to the database because not associated with a store?
+            // item id and store are "null" so not being saved to the database because no id and/or not associated with a store?
             this.items.push(new Item(item))
-            console.log(this.items)
             this.itemName = ''
             this.itemPrice = ''
             this.itemQuantity = ''
