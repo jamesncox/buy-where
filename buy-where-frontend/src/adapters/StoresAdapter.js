@@ -1,4 +1,6 @@
 class StoresAdapter {
+
+    //create and initialize a url to fetch stores instances.
     constructor() {
         this.baseUrl = 'http://localhost:3000/api/v1/stores'
     }

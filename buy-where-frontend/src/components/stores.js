@@ -1,4 +1,6 @@
 class Stores {
+
+    //create and initialize obects related to Stores class.
     constructor() {
         this.stores = []
         this.items = []

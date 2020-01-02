@@ -1,4 +1,6 @@
 class Item {
+
+    //create and initialize an Item object and its properties.
     constructor(itemJSON) {
         this.id = itemJSON.id
         this.name = itemJSON.name

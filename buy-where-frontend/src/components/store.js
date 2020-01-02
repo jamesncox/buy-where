@@ -1,4 +1,6 @@
 class Store {
+
+    //create and initialize a Store object and its properties.
     constructor(storeJSON) {
         this.id = storeJSON.id
         this.name = storeJSON.name

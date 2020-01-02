@@ -1,4 +1,6 @@
 class ItemsAdapter {
+
+    //create and initialize a url to fetch items instances.
     constructor() {
         this.baseUrl = 'http://localhost:3000/api/v1/items'
     }
