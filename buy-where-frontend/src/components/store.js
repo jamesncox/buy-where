@@ -28,7 +28,7 @@ class Store {
 
                 <button id="add-item-button">Add Item</button>
 
-                <form class='item-card' id="new-item-form">
+                <form class='item-card' id="new-item-form" data-id=${this.id}>
                 <label>Item name: </label>
                 <input type="text" id="new-item-name" placeholder="Item name">
                 <br>

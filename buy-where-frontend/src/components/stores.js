@@ -91,16 +91,12 @@ class Stores {
 
     //bind new dynamically created elements and set event listeners for new elements.
     invokeItemListeners() {
-        this.newItemForm = document.getElementById('new-item-form')
         this.addItemButton = document.querySelectorAll('#add-item-button')
+        this.newItemForms = document.querySelectorAll('#new-item-form')
 
-        this.newItemForm = document.getElementById('new-item-form')
-
-        this.newItemName = document.getElementById('new-item-name')
-        this.newItemPrice = document.getElementById('new-item-price')
-        this.newItemQuantity = document.getElementById('new-item-quantity')
-
-        this.newItemForm.addEventListener('submit', this.createItems.bind(this))
+        for (let form of this.newItemForms) {
+            form.addEventListener('submit', this.createItems.bind(this))
+        }
 
         if (this.addItemButton) {
             this.addItemButton.forEach(button => {
@@ -110,29 +106,32 @@ class Stores {
     }
 
     //display new-item-form when Edit Item button is clicked.
-    renderNewItemForm() {
-        this.newItemForm.style.display = 'block'
-        // only rendering for the first Store in my database....even if I click another store's addItemButton
+    renderNewItemForm(e) {
+        const form = e.target.parentElement.querySelector('form')
+        form.style.display = 'block'
     }
 
     //create new item in new-item-form and send to the database.
     createItems(e) {
         e.preventDefault()
 
-        const itemName = this.newItemName.value
-        const itemPrice = this.newItemPrice.value
-        const itemQuantity = this.newItemQuantity.value
+        const loader = document.createElement('div')
+        loader.className = 'loader'
+        e.target.parentElement.appendChild(loader)
 
-        this.itemsAdapter.createItem(itemName, itemPrice, itemQuantity).then(item => {
-            console.log(item)
-            // item id and store are "null" so not being saved to the database because no id and/or not associated with a store?
-            this.items.push(new Item(item))
-            this.itemName = ''
-            this.itemPrice = ''
-            this.itemQuantity = ''
+        const [name, price, quantity, _] = e.target.querySelectorAll('input')
+        const itemName = name.value
+        const itemPrice = price.value
+        const itemQuantity = quantity.value
+        const storeId = e.target.dataset.id
+
+        this.itemsAdapter.createItem(itemName, itemPrice, itemQuantity, storeId).then(item => {
+            const store = this.stores.find(s => s.id == storeId)
+            e.target.parentElement.removeChild(loader)
+            store.items.push(new Item(item))
+            e.target.hidden = true
             this.renderStore()
         })
-
     }
 
 }

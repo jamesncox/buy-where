@@ -10,12 +10,13 @@ class ItemsAdapter {
     }
 
     //send a new item and its properties to the database.
-    createItem(itemName, itemPrice, itemQuantity) {
+    createItem(itemName, itemPrice, itemQuantity, storeId) {
 
         const item = {
             name: itemName,
             price: itemPrice,
-            quantity: itemQuantity
+            quantity: itemQuantity,
+            store_id: storeId
         }
 
         return fetch(this.baseUrl, {
