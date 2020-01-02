@@ -27,7 +27,7 @@ class Stores {
         e.preventDefault()
         const value = this.newStoreName.value
 
-        this.adapter.createStore(value).then(store => {
+        this.storesAdapter.createStore(value).then(store => {
             this.stores.push(new Store(store))
             this.newStoreName.value = ''
             this.renderStore()
