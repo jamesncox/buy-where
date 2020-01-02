@@ -18,8 +18,8 @@ class Stores {
         this.storeForm = document.getElementById('new-store-form')
 
         this.storeForm.addEventListener('submit', this.createStore.bind(this))
-        this.storesContainer.addEventListener('dblclick', this.handleStoreClick.bind(this))
-        this.body.addEventListener('blur', this.updateStore.bind(this), true)
+        this.storesContainer.addEventListener('dblclick', this.handleStoreOrItemClick.bind(this))
+        this.body.addEventListener('blur', this.updateStoreOrItem.bind(this), true)
     }
 
     //call on the createStore() function in StoresAdapter to create a new store name.
@@ -35,12 +35,12 @@ class Stores {
     }
 
     //call on toggleStore() when store is double clicked.
-    handleStoreClick(e) {
-        this.toggleStore(e)
+    handleStoreOrItemClick(e) {
+        this.editStoreOrItem(e)
     }
 
     //set the store name element to become editable when clicked on.
-    toggleStore(e) {
+    editStoreOrItem(e) {
         if (e.target.classList.contains('store-name')) {
             e.preventDefault()
             const li = e.target
@@ -48,10 +48,34 @@ class Stores {
             li.focus()
             li.classList.add('editable')
         }
+
+        // if (e.target.classList.contains('item-name')) {
+        //     e.preventDefault()
+        //     const li = e.target
+        //     li.contentEditable = true
+        //     li.focus()
+        //     li.classList.add('editable')
+        // }
+
+        // if (e.target.classList.contains('item-price')) {
+        //     e.preventDefault()
+        //     const li = e.target
+        //     li.contentEditable = true
+        //     li.focus()
+        //     li.classList.add('editable')
+        // }
+
+        // if (e.target.classList.contains('item-quantity')) {
+        //     e.preventDefault()
+        //     const li = e.target
+        //     li.contentEditable = true
+        //     li.focus()
+        //     li.classList.add('editable')
+        // }
     }
 
     //if store-name element is clicked, send the updated value to the database when the user clicks away on another element.
-    updateStore(e) {
+    updateStoreOrItem(e) {
         if (e.target.classList.contains('store-name')) {
             const li = e.target
             li.contentEditable = false
@@ -60,6 +84,33 @@ class Stores {
             const id = li.dataset.id
             this.storesAdapter.updateStore(newValue, id)
         }
+
+        // if (e.target.classList.contains('item-name')) {
+        //     const li = e.target
+        //     li.contentEditable = false
+        //     li.classList.remove('editable')
+        //     const newItemName = li.innerHTML
+        //     const id = li.dataset.id
+        //     this.itemsAdapter.updateItem(newItemName, id)
+        // }
+
+        // if (e.target.classList.contains('item-price')) {
+        //     const li = e.target
+        //     li.contentEditable = false
+        //     li.classList.remove('editable')
+        //     const newItemPrice = li.innerHTML
+        //     const id = li.dataset.id
+        //     this.itemsAdapter.updateItem(newItemPrice, id)
+        // }
+
+        // if (e.target.classList.contains('item-quantity')) {
+        //     const li = e.target
+        //     li.contentEditable = false
+        //     li.classList.remove('editable')
+        //     const newItemQuantity = li.innerHTML
+        //     const id = li.dataset.id
+        //     this.itemsAdapter.updateItem(newItemQuantity, id)
+        // }
     }
 
     //grab all the stores and related items from the database. call on renderStore().

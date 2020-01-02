@@ -34,7 +34,8 @@ class ItemsAdapter {
         const item = {
             name: itemName,
             price: itemPrice,
-            quantity: itemQuantity
+            quantity: itemQuantity,
+            id: id
         }
 
         return fetch(`${this.baseUrl}/${id}`, {
