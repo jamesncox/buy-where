@@ -75,6 +75,7 @@ class Stores {
             const newPrice = td.innerHTML
             const newQuantity = td.innerHTML
             console.log(newName, newPrice, newQuantity)
+            //each item property becomes the newly edited value no matter which element i double click on, they all become that new value.
 
             td.contentEditable = false
             td.classList.remove('editable')
