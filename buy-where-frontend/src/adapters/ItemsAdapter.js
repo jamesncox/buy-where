@@ -29,12 +29,12 @@ class ItemsAdapter {
     }
 
     //modify an item and its properties and send them to the database.
-    updateItem(itemName, itemPrice, itemQuantity, id) {
+    updateItem(newName, newPrice, newQuantity, id) {
 
         const item = {
-            name: itemName,
-            price: itemPrice,
-            quantity: itemQuantity,
+            name: newName,
+            price: newPrice,
+            quantity: newQuantity,
             id: id
         }
 

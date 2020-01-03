@@ -49,29 +49,13 @@ class Stores {
             li.classList.add('editable')
         }
 
-        // if (e.target.classList.contains('item-name')) {
-        //     e.preventDefault()
-        //     const li = e.target
-        //     li.contentEditable = true
-        //     li.focus()
-        //     li.classList.add('editable')
-        // }
-
-        // if (e.target.classList.contains('item-price')) {
-        //     e.preventDefault()
-        //     const li = e.target
-        //     li.contentEditable = true
-        //     li.focus()
-        //     li.classList.add('editable')
-        // }
-
-        // if (e.target.classList.contains('item-quantity')) {
-        //     e.preventDefault()
-        //     const li = e.target
-        //     li.contentEditable = true
-        //     li.focus()
-        //     li.classList.add('editable')
-        // }
+        if (e.target.classList.contains('item-name') || e.target.classList.contains('item-price') || e.target.classList.contains('item-quantity')) {
+            e.preventDefault()
+            const li = e.target
+            li.contentEditable = true
+            li.focus()
+            li.classList.add('editable')
+        }
     }
 
     //if store-name element is clicked, send the updated value to the database when the user clicks away on another element.
@@ -85,32 +69,19 @@ class Stores {
             this.storesAdapter.updateStore(newValue, id)
         }
 
-        // if (e.target.classList.contains('item-name')) {
-        //     const li = e.target
-        //     li.contentEditable = false
-        //     li.classList.remove('editable')
-        //     const newItemName = li.innerHTML
-        //     const id = li.dataset.id
-        //     this.itemsAdapter.updateItem(newItemName, id)
-        // }
+        if (e.target.classList.contains('item-name') || e.target.classList.contains('item-price') || e.target.classList.contains('item-quantity')) {
+            const td = e.target
+            const newName = td.innerHTML
+            const newPrice = td.innerHTML
+            const newQuantity = td.innerHTML
+            console.log(newName, newPrice, newQuantity)
 
-        // if (e.target.classList.contains('item-price')) {
-        //     const li = e.target
-        //     li.contentEditable = false
-        //     li.classList.remove('editable')
-        //     const newItemPrice = li.innerHTML
-        //     const id = li.dataset.id
-        //     this.itemsAdapter.updateItem(newItemPrice, id)
-        // }
+            td.contentEditable = false
+            td.classList.remove('editable')
 
-        // if (e.target.classList.contains('item-quantity')) {
-        //     const li = e.target
-        //     li.contentEditable = false
-        //     li.classList.remove('editable')
-        //     const newItemQuantity = li.innerHTML
-        //     const id = li.dataset.id
-        //     this.itemsAdapter.updateItem(newItemQuantity, id)
-        // }
+            const id = td.dataset.id
+            this.itemsAdapter.updateItem(newName, newPrice, newQuantity, id)
+        }
     }
 
     //grab all the stores and related items from the database. call on renderStore().
