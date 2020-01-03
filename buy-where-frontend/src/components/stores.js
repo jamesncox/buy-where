@@ -69,19 +69,46 @@ class Stores {
             this.storesAdapter.updateStore(newValue, id)
         }
 
-        if (e.target.classList.contains('item-name') || e.target.classList.contains('item-price') || e.target.classList.contains('item-quantity')) {
+        if (e.target.classList.contains('item-name')) {
             const td = e.target
             const newName = td.innerHTML
-            const newPrice = td.innerHTML
-            const newQuantity = td.innerHTML
-            console.log(newName, newPrice, newQuantity)
-            //each item property becomes the newly edited value no matter which element i double click on, they all become that new value.
+            const samePrice = td.value
+            const sameQuantity = td.value
 
             td.contentEditable = false
             td.classList.remove('editable')
 
             const id = td.dataset.id
-            this.itemsAdapter.updateItem(newName, newPrice, newQuantity, id)
+            this.itemsAdapter.updateItem(newName, samePrice, sameQuantity, id)
+        }
+
+
+        if (e.target.classList.contains('item-price')) {
+            const td = e.target
+            const sameName = td.value
+            const newPrice = td.innerHTML
+            const sameQuantity = td.value
+            console.log(newPrice)
+
+            td.contentEditable = false
+            td.classList.remove('editable')
+
+            const id = td.dataset.id
+            this.itemsAdapter.updateItem(sameName, newPrice, sameQuantity, id)
+        }
+
+
+        if (e.target.classList.contains('item-quantity')) {
+            const td = e.target
+            const sameName = td.value
+            const samePrice = td.value
+            const newQuantity = td.innerHTML
+
+            td.contentEditable = false
+            td.classList.remove('editable')
+
+            const id = td.dataset.id
+            this.itemsAdapter.updateItem(sameName, samePrice, newQuantity, id)
         }
     }
 

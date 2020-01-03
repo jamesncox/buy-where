@@ -17,7 +17,7 @@ class Store {
                 <table>
                     <tr>
                         <th>Item</th>
-                        <th>Price</th>
+                        <th>$ Price</th>
                         <th>Quantity</th>
                     </tr>
                     <div class="items-container">
