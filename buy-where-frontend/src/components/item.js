@@ -14,7 +14,7 @@ class Item {
         return (`
             <tr>
                 <td class="item-name" data-id="${this.id}" data-type="name"> ${this.name} </td>
-                <td class="item-price" data-id="${this.id}" data-type="price"> ${this.price.toFixed(2)} </td>
+                <td class="item-price" data-id="${this.id}" data-type="price">${"$" + this.price.toFixed(2)} </td>
                 <td class="item-quantity" data-id="${this.id}" data-type="quantity"> ${this.quantity} </td>
             </tr>
         `)
