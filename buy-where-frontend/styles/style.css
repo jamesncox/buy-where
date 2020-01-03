@@ -22,13 +22,11 @@ h2 {
   padding: 0 10px;
 }
 
-/* Remove extra left and right margins, due to padding in columns */
 .row { 
   display: flex;
   justify-content: center;
 }
 
-/* Clear floats after the columns */
 .row::after {
   content: "";
   display: table;
@@ -141,14 +139,3 @@ h2 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-
-  /* td[data-type='name'] {
-    background: #8BC34A;
-  }
-  
-  td[data-type='price'] {
-    background: #3F51B5;
-  }
-   */
-
-   /* Button used to open the contact form - fixed at the bottom of the page */
