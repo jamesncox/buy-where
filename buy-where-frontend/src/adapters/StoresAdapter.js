@@ -5,7 +5,7 @@ class StoresAdapter {
         this.baseUrl = 'http://localhost:3000/api/v1/stores'
     }
 
-    //fetch stores (and items) from the database.
+    //fetch stores using "get" (and items) from the database.
     getStores() {
         return fetch(this.baseUrl).then(res => res.json())
     }
