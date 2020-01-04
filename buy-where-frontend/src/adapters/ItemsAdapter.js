@@ -5,6 +5,7 @@ class ItemsAdapter {
         this.baseUrl = 'http://localhost:3000/api/v1/items'
     }
 
+    //a "get" fetch request to grab items from the database.
     getItems() {
         return fetch(this.baseUrl).then(res => res.json())
     }
