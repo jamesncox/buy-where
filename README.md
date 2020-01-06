@@ -12,7 +12,7 @@ The following end-points are utilized in the API to fetch data:
 'http://localhost:3000/api/v1/items' - This end-point will get all items and has post and patch routes for creating and updating items.
 
 The Front-End:
-The front-end uses Javascript to asynchronously make get and post requests to the API to populate the page with data and update the API. The data and functionality of the front-end was encapsulated in classes and methods.
+The front-end uses Javascript to asynchronously make get, post and patch requests to the API to populate the page with data and update the API. The data and functionality of the front-end was encapsulated in classes and methods.
 
 Getting Started
 To get started using this app do the following:
